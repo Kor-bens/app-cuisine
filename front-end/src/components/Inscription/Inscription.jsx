@@ -11,6 +11,8 @@ function FormulaireInscription() {
     confirmationMotDePasse: "",
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
@@ -30,12 +32,46 @@ function FormulaireInscription() {
     });
   };
 
-  const handleSubmit = (e) => {};
+  if(formData.nom){
+
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validation des champs
+    const fildsToCheck = ['nom', 'prenom', 'email', 'motDePasse', 'confirmationMotDePasse']
+    const emptyFields = fildsToCheck.filter(field => !formData[field])
+
+    let errorMessage = '';
+
+  if (emptyFields.length === 1) {
+    errorMessage = `Veuillez remplir le champ suivant : ${emptyFields[0]}`;
+  } else if (emptyFields.length > 1) {
+    errorMessage = `Veuillez remplir les champs suivants : ${emptyFields.join(', ')}`;
+  }
+
+  if (errorMessage) {
+    setErrorMessage(errorMessage);
+    return;
+  }
+
+  // Vérification de la correspondance des mots de passe
+  if (formData.motDePasse !== formData.confirmationMotDePasse) {
+    const errorMessage = "Les mots de passe ne correspondent pas.";
+    setErrorMessage(errorMessage);
+    return;
+  }
+
+
+ 
+  };
 
   return (
     <>
       <h1 className="px-8 text-center text-xl">Créer un compte</h1>
-    <form action="" className="flex flex-col w-5/5 mt-20 px-8">
+    <form onSubmit={handleSubmit} className="flex flex-col w-5/5 mt-20 px-8">
+      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       <div className="input-group ">
         <label htmlFor="nom">Nom</label>
         <div className="input-container px-10">
