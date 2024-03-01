@@ -1,0 +1,13 @@
+body{
+    display:flex;
+    flex-direction:column
+}
+
+.input-container {
+    display: flex;
+    align-items: center; /* Alignement vertical */
+  }
+
+  .btn-inscription {
+    width: 100%;
+  }
