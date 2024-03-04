@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import { ConfigService } from '@nestjs/config/dist';
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
-  user: any;
+  // user: any;
   constructor(configService : ConfigService){
     super( {
         datasources : {
