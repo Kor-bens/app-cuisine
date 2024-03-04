@@ -6,10 +6,10 @@ import { RecetteDto } from './dto/recette.dto';
 export class RecetteController {
     constructor(private readonly recetteService: RecetteService) {}
 
-    @Post()
-    async createRecette(@Body() recetteDto: RecetteDto) {
-        return this.recetteService.createRecette(recetteDto);
-    }
+    // @Post()
+    // async createRecette(@Body() recetteDto: RecetteDto) {
+    //     return this.recetteService.createRecette(recetteDto);
+    // }
 
     @Get()
     async getRecette() {
