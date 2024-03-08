@@ -6,11 +6,11 @@ import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 export default function NavBar() {
   return (
-    <nav className=" bg-white border-t shadow-md 
+    <nav className="  border-t shadow-md 
     mobile:fixed mobile:bottom-0 mobile:left-0 mobile:w-full
     md:text-2xl"> 
     <div className="flex mb-0 ">
-      <ul className="max-w-screen-lg w-full flex place-content-evenly space-x-4 border-2 border-zinc-800 bg-red-300 rounded-xl py-11">
+      <ul className="max-w-screen-lg w-full flex place-content-evenly space-x-4 border-2 border-zinc-800 text-zinc-50 font-bold  rounded-xl py-11">
         <li>
           <div className="flex flex-col items-center">
             <HomeIcon className=" text-black 

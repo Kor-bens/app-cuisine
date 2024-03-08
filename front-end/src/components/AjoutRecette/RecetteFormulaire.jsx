@@ -80,7 +80,7 @@ export default function RecetteFormulaire() {
             )}
 
             
-        <form onSubmit={handleSubmit} className=" w-12/12  mobile:mt-0 mt-36 bg-slate-600 ">
+        <form onSubmit={handleSubmit} className=" w-12/12  mobile:mt-0 mt-36 ">
             <div className="text-left mobile:w-full mobile:text-red-400 px-3.5 sm:w-full md:w-full lg:w-full w-full">
                 <div className="flex flex-col mb-4 text-lg">
                     <label htmlFor="title">Titre :</label>
