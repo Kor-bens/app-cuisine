@@ -7,38 +7,41 @@ import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 export default function NavBar() {
   return (
     <nav className=" bg-white border-t shadow-md 
-    mobile:fixed mobile:bottom-0 mobile:left-0 mobile:w-full"> 
+    mobile:fixed mobile:bottom-0 mobile:left-0 mobile:w-full
+    md:text-2xl"> 
     <div className="flex mb-0 ">
-      <ul className="max-w-screen-lg w-full flex place-content-evenly space-x-4 border-2 border-red-500 rounded-3xl">
+      <ul className="max-w-screen-lg w-full flex place-content-evenly space-x-4 border-2 border-zinc-800 bg-red-300 rounded-xl py-11">
         <li>
           <div className="flex flex-col items-center">
             <HomeIcon className=" text-black 
-            mobile:h-5 mobile:w-5" />
-            <a href="/">Accueil</a>
+            mobile:h-5 mobile:w-5
+            md:hidden" />
+            <a href="/" className="md:text-3xl">Accueil</a>
           </div>
         </li>
         <li>
           <div className="flex flex-col items-center">
             <MagnifyingGlassIcon className=" text-black 
-            mobile:h-5 mobile:w-5" />
-            <a href="">Explorer</a>
+            mobile:h-5 mobile:w-5
+            md:hidden" />
+            <a href="" className="md:text-3xl">Explorer</a>
           </div>
         </li>
         <li>
           <div className="flex flex-col item-center">
             {/* <AddIcon /> */}
-            <Link to="/ajout">Ajouter</Link> {/* Utiliser Link pour rediriger vers la page d'ajout */}
+            <a href="/ajout" className="md:text-3xl">Ajouter</a> 
           </div>
         </li>
-        <li className="hidden md:block">
+        <li className="hidden md:block ">
           {" "}
           {/* Cacher l'élément sur mobile */}
-          <a href="">S'inscrire</a>
+          <a href="/inscription" className="md:text-3xl">S'inscrire</a>
         </li>
         <li>
           <div className="flex flex-col items-center">
             {/* <LogInIcon /> */}
-            <a href="">Se connecter</a>
+            <a href="" className="md:text-3xl">Se connecter</a>
           </div>
         </li>
       </ul>
