@@ -1,13 +1,19 @@
 body{
-    display:flex;
-    flex-direction:column
+  display:flex;
+  flex-direction:column;
+  background-image: url('../../assets/background/bg-legumes.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
 }
 
 .input-container {
-    display: flex;
-    align-items: center; /* Alignement vertical */
-  }
+  display: flex;
+  align-items: center; /* Alignement vertical */
+}
 
-  .btn-inscription {
-    width: 100%;
-  }
+.btn-inscription {
+  width: 100%;
+}

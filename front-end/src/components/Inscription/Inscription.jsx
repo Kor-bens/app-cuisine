@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 import "./inscription.css";
 import NavBar from "../common/navbar/Navbar";
+import backgroundImage from '../../assets/background/bg.jpg'
 
 function FormulaireInscription() {
+  const styles = {
+    backgroundImage: `url(${backgroundImage})`
+  }
   const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
@@ -78,17 +82,20 @@ function FormulaireInscription() {
       <form
         onSubmit={handleSubmit}
         className=" flex flex-col w-5/5 px-8 
-    md:text-center  md:justify-center md:h-full md:w-5/5 "
-      >
-        <h1 className="px-8 text-center md:text-5xl mb-6">Créer un compte</h1>
+        mobile:mb-4 mobile:mt-4 mobile:w-5/5 mobile:justify-center mobile:h-full
+    md:text-center  md:justify-center md:h-full md:w-5/5 md:mt-4 md:mb-4">
+        <h1 className="px-8 text-center text-slate-200 mb-6 font-bold
+        mobile:text-3xl
+        md:text-5xl">Créer un compte</h1>
         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         <div className="input-group ">
-          <label htmlFor="nom" className="md:text-3xl">
+          <label htmlFor="nom" className=" text-slate-200 font-bold
+          md:text-3xl ">
             Nom
           </label>
           <div className="input-container md:px-48">
             <input
-              className="bg-orange-100 rounded-md
+              className="bg-orange-100 rounded-md text-center
             mobile:w-full 
             md:w-full md:mb-3 md:mt-3 md:text-2xl md:h-12"
               type="text"
@@ -100,12 +107,13 @@ function FormulaireInscription() {
           </div>
         </div>
         <div className="input-group">
-          <label htmlFor="prenom" className="md:text-3xl">
+          <label htmlFor="prenom" className="text-slate-200 font-bold 
+          md:text-3xl">
             Prénom
           </label>
           <div className="input-container md:px-48">
             <input
-              className="bg-orange-100 rounded-md 
+              className="bg-orange-100 rounded-md text-center 
             mobile:w-full 
             md:w-full md:mb-3 md:mt-3 md:text-2xl md:h-12"
               type="text"
@@ -117,12 +125,13 @@ function FormulaireInscription() {
           </div>
         </div>
         <div className="input-group">
-          <label htmlFor="email" className="md:text-3xl">
+          <label htmlFor="email" className="text-slate-200 font-bold 
+          md:text-3xl">
             Email
           </label>
           <div className="input-container md:px-48">
             <input
-              className="bg-orange-100 rounded-md
+              className="bg-orange-100 rounded-md text-center
              mobile:w-full
               md:w-full md:mb-3 md:mt-3 md:text-2xl md:h-12"
               type="email"
@@ -134,12 +143,13 @@ function FormulaireInscription() {
           </div>
         </div>
         <div className="input-group">
-          <label htmlFor="motDePasse" className="md:text-3xl">
+          <label htmlFor="motDePasse" className="text-slate-200 font-bold 
+          md:text-3xl">
             Mot de passe
           </label>
           <div className="input-container md:px-48">
             <input
-              className="bg-orange-100 rounded-md
+              className="bg-orange-100 rounded-md text-center
              mobile:w-full 
              md:w-full md:mb-3 md:mt-3 md:text-2xl md:h-12"
               type={showPassword ? "text" : "password"}
@@ -151,19 +161,21 @@ function FormulaireInscription() {
             <button
               type="button"
               onClick={toggleShowPassword}
-              className="md:text-2xl"
+              className="text-slate-200 font-bold
+              md:text-2xl"
             >
               {showPassword ? "Cacher" : "Afficher"}
             </button>
           </div>
         </div>
         <div className="input-group">
-          <label htmlFor="confirmationMotDePasse" className="md:text-3xl">
+          <label htmlFor="confirmationMotDePasse" className="text-slate-200 font-bold 
+          md:text-3xl">
             Confirmation du mot de passe
           </label>
           <div className="input-container md:px-48">
             <input
-              className="bg-orange-100 rounded-md
+              className="bg-orange-100 rounded-md text-center
              mobile:w-full
             md:mb-3 md:mt-3 md:text-2xl md:w-full md:h-12"
               type={showPasswordConfirm ? "text" : "password"}
@@ -175,7 +187,8 @@ function FormulaireInscription() {
             <button
               type="button"
               onClick={toggleShowPasswordConfirm}
-              className="md:text-2xl"
+              className="text-slate-200 font-bold
+              md:text-2xl"
             >
               {showPasswordConfirm ? "Cacher" : "Afficher"}
             </button>
@@ -183,9 +196,9 @@ function FormulaireInscription() {
         </div>
         <div>
           <button
-            className="bg-orange-100 rounded-md mt-5 px-8 
+            className="text-slate-200 font-bold rounded-md mt-5 px-8 bg-orange-500
          mobile:w-full 
-         md:text-2xl md:h-12"
+         md:text-2xl md:h-12 md:mb-3"
             type="submit"
           >
             S'inscrire
