@@ -82,8 +82,8 @@ function FormulaireInscription() {
       <form
         onSubmit={handleSubmit}
         className=" flex flex-col w-5/5 px-8 
-        mobile:mb-4 mobile:mt-4 mobile:w-5/5 mobile:justify-center mobile:h-full
-    md:text-center  md:justify-center md:h-full md:w-5/5 md:mt-16">
+        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
+        md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16">
         <h1 className="px-8 text-center text-slate-200 mb-6 font-bold
         mobile:text-3xl
         md:text-5xl">Créer un compte</h1>
@@ -96,7 +96,7 @@ function FormulaireInscription() {
           <div className="input-container md:px-48">
             <input
               className="bg-orange-100 rounded-md text-center
-            mobile:w-full 
+            mobile:w-full mobile:mb-4 mobile:mt-6 mobile:h-8 mobile:pl-14 mobile:pr-14
             md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
               type="text"
               name="nom"
@@ -114,7 +114,7 @@ function FormulaireInscription() {
           <div className="input-container md:px-48">
             <input
               className="bg-orange-100 rounded-md text-center 
-            mobile:w-full 
+            mobile:w-full mobile:mb-4 mobile:mt-1 mobile:h-8 mobile:pl-14 mobile:pr-14
             md:w-full md:mb-4 md:mt-4 md:text-2xl md:h-12"
               type="text"
               name="prenom"
@@ -132,7 +132,7 @@ function FormulaireInscription() {
           <div className="input-container md:px-48">
             <input
               className="bg-orange-100 rounded-md text-center
-             mobile:w-full
+             mobile:w-full mobile:mb-4 mobile:mt-1 mobile:h-8 mobile:pl-14 mobile:pr-14
               md:w-full md:mb-4 md:mt-4 md:text-2xl md:h-12"
               type="email"
               name="email"
@@ -150,18 +150,20 @@ function FormulaireInscription() {
           <div className="input-container md:px-48 relative">
   <input
     className="bg-orange-100 rounded-md text-center
-     mobile:w-full 
+     mobile:w-full mobile:pl-14 mobile:pr-14 mobile:h-8 mobile:mt-1 mobile:mb-4
      md:w-full md:mb-4 md:mt-4 md:text-2xl md:h-12 md:pl-3 md:pr-16"
     type={showPassword ? "text" : "password"}
     name="motDePasse"
-    placeholder="Mot de passe"
+    placeholder="******"
     value={formData.motDePasse}
     onChange={handleChange}
   />
   <button
     type="button"
     onClick={toggleShowPassword}
-    className="absolute right-48 px-4 flex items-center justify-center h-full text-zinc-600 font-bold md:text-2xl"
+    className="absolute flex items-center justify-center h-full text-zinc-600 font-bold 
+    mobile:right-0 mobile:px-4 mobile:h-20
+    md:right-48 md:px-4 md:text-2xl"
   >
     {showPassword ? "Cacher" : "Afficher"}
   </button>
@@ -175,19 +177,21 @@ function FormulaireInscription() {
           <div className="input-container md:px-48">
             <input
              className="bg-orange-100 rounded-md text-center
-             mobile:w-full 
+             mobile:w-full mobile:mt-1 mobile:mb-4 mobile:h-8 mobile:pl-14 mobile:pr-14
              md:w-full md:mb-4 md:mt-4 md:text-2xl md:h-12 md:pl-3 md:pr-16"
               type={showPasswordConfirm ? "text" : "password"}
               name="confirmationMotDePasse"
-              placeholder="Confirmation de mot de passe"
+              placeholder="******"
               value={formData.confirmationMotDePasse}
               onChange={handleChange}
             />
+            {/* TODO regler afficher */}
             <button
               type="button"
               onClick={toggleShowPasswordConfirm}
-              className="absolute right-56 px-4 flex items-center justify-center h-full text-zinc-600 font-bold
-              md:text-2xl"
+              className="absolute flex items-center justify-center h-full text-zinc-600 font-bold 
+          mobile:right-16 mobile:px-4 mobile:h-2 mobile:items-center
+          md:right-56 md:px-4 md:text-2xl"
             >
               {showPasswordConfirm ? "Cacher" : "Afficher"}
             </button>
@@ -195,8 +199,8 @@ function FormulaireInscription() {
         </div>
         <div>
           <button
-            className="text-slate-200 font-bold rounded-md mt-5 px-8 bg-orange-500
-         mobile:w-full 
+            className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500
+         mobile:w-12/12 mobile:h-8 
          md:text-2xl md:h-12 md:mb-3"
             type="submit"
           >
