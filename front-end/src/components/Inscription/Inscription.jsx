@@ -161,8 +161,8 @@ function FormulaireInscription() {
   <button
     type="button"
     onClick={toggleShowPassword}
-    className="absolute flex items-center justify-center h-full text-zinc-600 font-bold 
-    mobile:right-0 mobile:px-4 mobile:h-20
+    className="absolute flex justify-center h-full text-zinc-600 font-bold 
+    mobile:right-0 mobile:px-4 mobile:h-9
     md:right-48 md:px-4 md:text-2xl"
   >
     {showPassword ? "Cacher" : "Afficher"}
@@ -185,12 +185,11 @@ function FormulaireInscription() {
               value={formData.confirmationMotDePasse}
               onChange={handleChange}
             />
-            {/* TODO regler afficher */}
             <button
               type="button"
               onClick={toggleShowPasswordConfirm}
-              className="absolute flex items-center justify-center h-full text-zinc-600 font-bold 
-          mobile:right-16 mobile:px-4 mobile:h-2 mobile:items-center
+              className="absolute flex justify-center h-full text-zinc-600 font-bold 
+          mobile:right-16 mobile:px-4 mobile:h-9
           md:right-56 md:px-4 md:text-2xl"
             >
               {showPasswordConfirm ? "Cacher" : "Afficher"}
@@ -200,7 +199,7 @@ function FormulaireInscription() {
         <div>
           <button
             className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500
-         mobile:w-12/12 mobile:h-8 
+         mobile:w-12/12 mobile:h-9 
          md:text-2xl md:h-12 md:mb-3"
             type="submit"
           >
