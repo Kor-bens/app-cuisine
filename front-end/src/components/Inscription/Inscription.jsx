@@ -87,7 +87,7 @@ function FormulaireInscription() {
         <h1 className="px-8 text-center text-slate-200 mb-6 font-bold
         mobile:text-3xl
         md:text-5xl">Créer un compte</h1>
-        {errorMessage && <p className="text-red-500 md:text-3xl md:font-bold">{errorMessage}</p>}
+        {errorMessage && <p className="text-red-500 md:text-4xl md:font-bold">{errorMessage}</p>}
         <div className="input-group ">
           {/* <label htmlFor="nom" className=" text-slate-200 font-bold
           md:text-3xl ">
