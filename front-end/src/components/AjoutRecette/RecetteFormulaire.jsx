@@ -73,48 +73,60 @@ export default function RecetteFormulaire() {
     return (
         <>
        {submitted && (
-                <p className="text-green-500">Le formulaire a été soumis avec succès !</p>
+                <p className="text-green-500 md:text-4xl md:font-bold">Le formulaire a été soumis avec succès !</p>
             )}
             {errorMessage && (
-                <p className="text-red-500">{errorMessage}</p>
+                <p className="text-red-500 md:text-4xl md:font-bold md:text-center">{errorMessage}</p>
             )}
 
-            
-        <form onSubmit={handleSubmit} className=" w-12/12  mobile:mt-0 mt-36 ">
-            <div className="text-left mobile:w-full mobile:text-red-400 px-3.5 sm:w-full md:w-full lg:w-full w-full">
-                <div className="flex flex-col mb-4 text-lg">
-                    <label htmlFor="title">Titre :</label>
+        <form onSubmit={handleSubmit} className=" flex flex-col w-5/5 px-8 
+        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
+         md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16">
+       
+            <div className="flex flex-col w-5/5 px-8
+        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
+         md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16">
+                 <h1 className="font-mono px-8  text-center text-slate-200 mb-6 font-bold
+                                mobile:text-3xl 
+                                md:text-5xl">Nouvelle recette</h1>
+                <div className="flex flex-col text-lg">
                     <input
-                        className="border-2 rounded-lg bg-red-100 "
+                        className="bg-orange-100 rounded-md text-center
+                         mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
+                          md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
                         type="text"
                         id="title"
                         name="title"
+                        placeholder="Titre"
                         value={formData.title}
                         onChange={(e) => handleInputChange(e, null, "title")}
                     />
                 </div>
-                <input
+                {/* <input
                     type="file"
                     accept="image/*"
                     capture="environment"
-                />
+                /> */}
 
-                <div className="flex flex-col mb-4 text-lg">
-                    <label htmlFor="description">Description :</label>
+                <div className="flex flex-col text-lg">
                     <textarea
-                        className="border-2 rounded-lg bg-red-100  "
+                        className="bg-orange-100 rounded-md text-center
+                        mobile:w-full mobile:mb-4 mobile:mt-6 mobile:h-8 mobile:pl-14 mobile:pr-14
+                         md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
                         id="description"
                         name="description"
+                        placeholder="Description"
                         value={formData.description}
                         onChange={(e) => handleInputChange(e, null, "description")}
                     />
                 </div>
-                <div className="flex flex-col mb-4 ">
-                    <label className="text-lg">Ingrédients :</label>
+                <div className="flex flex-col items-center py-2">
                     {formData.ingredients.map((ingredient, index) => (
                         <div key={index} className="flex ">
                             <input
-                                className="border-2 rounded-lg bg-red-100"
+                                className="bg-orange-100 rounded-md text-center
+                                mobile:w-full  mobile:h-8 
+                                 md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
                                 type="text"
                                 placeholder="Quantité"
                                 name="quantite"
@@ -122,7 +134,9 @@ export default function RecetteFormulaire() {
                                 onChange={(e) => handleInputChange(e, index, "ingredients")}
                             />
                             <input
-                                className="border-2 rounded-lg bg-red-100 ml-2"
+                                className="bg-orange-100 rounded-md text-center
+                                mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
+                                 md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
                                 type="text"
                                 placeholder="Nom"
                                 name="nom"
@@ -131,14 +145,14 @@ export default function RecetteFormulaire() {
                             />
                             <button
                                 type="button"
-                                className="ml-2 border-2 px-2 py-1 text-slate-100 bg-zinc-950 rounded-lg"
+                                className="ml-2 border-2 px-2  text-slate-100 bg-zinc-950 rounded-lg"
                                 onClick={() => handleRemoveField(index, "ingredients")}
                             >
                                 -
                             </button>
                             <button
                         type="button"
-                        className="border-2 rounded-lg px-2 py-1 text-slate-100 bg-zinc-950"
+                        className="border-2 rounded-lg px-2  text-slate-100 bg-zinc-950"
                         onClick={() => handleAddField("ingredients")}
                     >
                        +
@@ -147,12 +161,13 @@ export default function RecetteFormulaire() {
                     ))}
                    
                 </div>
-                <div className="flex flex-col mb-4">
-                    <label className="text-lg">Instructions :</label>
+                <div className="flex flex-col items-center py-2 ">
                     {formData.instructions.map((instruction, index) => (
                         <div key={index} className="flex">
                             <input
-                                className="border-2 bg-red-100 rounded-lg"
+                                className="bg-orange-100 rounded-md text-center
+                                mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
+                                 md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
                                 type="text"
                                 placeholder="Étape"
                                 name="etape"
@@ -161,14 +176,14 @@ export default function RecetteFormulaire() {
                             />
                             <button
                                 type="button"
-                                className="ml-2 border-2 rounded-lg px-2 py-1 text-white bg-zinc-950 "
+                                className="ml-2 border-2 rounded-lg px-2  text-white bg-zinc-950 "
                                 onClick={() => handleRemoveField(index, "instructions")}
                             >
                                 -
                             </button>
                             <button
                         type="button"
-                        className=" border-2 rounded-lg px-2 py-1 text-white bg-zinc-950 "
+                        className=" border-2 rounded-md px-2   text-white bg-zinc-950 flex"
                         onClick={() => handleAddField("instructions")}
                     >
                         +

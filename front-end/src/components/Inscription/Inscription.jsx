@@ -98,10 +98,15 @@ function FormulaireInscription() {
       <NavBar />
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col w-5/5 px-8 mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16"
+        className="flex flex-col w-5/5 px-8 
+        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
+         md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16"
       >
-        <h1 className="px-8 text-center text-slate-200 mb-6 font-bold mobile:text-3xl md:text-5xl">Créer un compte</h1>
-        {errorMessage && <p className="text-red-500 md:text-4xl md:font-bold">{errorMessage}</p>}
+        <h1 className="px-8 text-center text-slate-200 mb-6 font-bold 
+        mobile:text-3xl 
+        md:text-5xl">Créer un compte</h1>
+        {errorMessage && <p className="text-red-500 text-center px-8
+         md:text-4xl md:font-bold">{errorMessage}</p>}
         <div className="input-group">
           <div className="input-container md:px-48">
             <input
