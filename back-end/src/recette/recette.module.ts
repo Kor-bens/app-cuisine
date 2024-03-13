@@ -5,13 +5,12 @@ import { PrismaModule } from 'src/shared/prisma/prisma.module';
 import { RecetteController } from './recette.controller';
 
 @Module({
-    imports: [
-        ConfigModule.forRoot(),
-        PrismaModule,
+    // imports: [
+    //     ConfigModule.forRoot(),
+    //     PrismaModule,
         
-    ],
+    // ],
     controllers: [RecetteController],   
     providers: [RecetteService],
-    // exports: [RecetteService]
 })
 export class RecetteModule {}
