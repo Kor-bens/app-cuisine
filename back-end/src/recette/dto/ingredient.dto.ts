@@ -1,5 +1,5 @@
 export interface IngredientDto {
-    id: any;
+    id: number;
     nom: string;
     quantite: string;
   }
