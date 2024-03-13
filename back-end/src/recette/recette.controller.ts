@@ -9,8 +9,8 @@ export class RecetteController {
 
     @Post()
     async createRecette(@Body() recetteDto: RecetteDto,
-                        @Body() userDto: UserDto) {
-        return this.recetteService.createRecette(recetteDto, userDto);
+                        ) {
+        return this.recetteService.createRecette(recetteDto);
     }
 
     @Get()

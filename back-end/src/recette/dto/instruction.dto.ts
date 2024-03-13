@@ -1,4 +1,4 @@
 export interface InstructionDto {
-    id: any;
+    id: number;
     etape: string;
   }

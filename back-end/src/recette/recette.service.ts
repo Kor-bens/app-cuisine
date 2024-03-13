@@ -6,21 +6,22 @@ import { UserDto } from './dto/user.dto'
 export class RecetteService {
     constructor(private readonly prisma: PrismaService) {}
 
-    async createRecette(recetteDto: RecetteDto, userDto : UserDto) {
-        const { title, description, ingredients, instructions } = recetteDto;
+    async createRecette(recetteDto: RecetteDto) {
+        const { title, description, userId, ingredients, instructions } = recetteDto;
 
         // Créer une recette
         const recette = await this.prisma.recette.create({
             data: {
                 title,
                 description,
+                userId,
                 ingredients: {
                     create: ingredients.map(ingredient => ({ nom: ingredient.nom, quantite: ingredient.quantite }))
                 },
                 instructions: {
                     create: instructions.map(instruction => ({ etape: instruction.etape }))
                 },
-                utilisateur: {connect: { id: userDto.id}}
+                // utilisateur: {connect: { id: recetteDto.}}
             },
             include: {
                 ingredients: true,
