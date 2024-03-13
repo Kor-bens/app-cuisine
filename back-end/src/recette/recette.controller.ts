@@ -10,7 +10,6 @@ export class RecetteController {
     @Post()
     async createRecette(@Body() recetteDto: RecetteDto,
                         @Body() userDto: UserDto) {
-        const userId = recetteDto.userId;
         return this.recetteService.createRecette(recetteDto, userDto);
     }
 
