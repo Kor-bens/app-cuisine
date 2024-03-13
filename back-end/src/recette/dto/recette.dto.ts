@@ -6,6 +6,7 @@ export interface RecetteDto {
     description: string;
     ingredients: IngredientDto[];
     instructions: InstructionDto[];
+    userId: number;
   }
   
   
