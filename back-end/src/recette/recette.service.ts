@@ -1,35 +1,35 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../shared/prisma/prisma.service';
 import { RecetteDto } from './dto/recette.dto';
-import { IngredientDto } from './dto/ingredient.dto';
-import { InstructionDto } from './dto/instruction.dto';
+import { UserDto } from './dto/user.dto'
 @Injectable()
 export class RecetteService {
     constructor(private readonly prisma: PrismaService) {}
 
-    // async createRecette(recetteDto: RecetteDto) {
-    //     const { title, description, ingredients, instructions } = recetteDto;
+    async createRecette(recetteDto: RecetteDto, userDto : UserDto) {
+        const { title, description, ingredients, instructions } = recetteDto;
 
-    //     // Créer une recette
-    //     const recette = await this.prisma.recette.create({
-    //         data: {
-    //             title,
-    //             description,
-    //             ingredients: {
-    //                 create: ingredients.map(ingredient => ({ nom: ingredient.nom, quantite: ingredient.quantite }))
-    //             },
-    //             instructions: {
-    //                 create: instructions.map(instruction => ({ etape: instruction.etape }))
-    //             }
-    //         },
-    //         include: {
-    //             ingredients: true,
-    //             instructions: true
-    //         }
-    //     });
+        // Créer une recette
+        const recette = await this.prisma.recette.create({
+            data: {
+                title,
+                description,
+                ingredients: {
+                    create: ingredients.map(ingredient => ({ nom: ingredient.nom, quantite: ingredient.quantite }))
+                },
+                instructions: {
+                    create: instructions.map(instruction => ({ etape: instruction.etape }))
+                },
+                utilisateur: {connect: { id: userDto.id}}
+            },
+            include: {
+                ingredients: true,
+                instructions: true
+            }
+        });
 
-    //     return recette;
-    // }
+        return recette;
+    }
 
     async getAllRecettes(){
         return this.prisma.recette.findMany();
