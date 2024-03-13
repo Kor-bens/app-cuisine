@@ -1,15 +1,18 @@
 import { Post, Controller, Body, Get, NotFoundException, Param, Delete, Put, } from '@nestjs/common';
 import { RecetteService } from './recette.service';
 import { RecetteDto } from './dto/recette.dto';
+import { UserDto } from './dto/user.dto';
 
 @Controller('recettes')
 export class RecetteController {
     constructor(private readonly recetteService: RecetteService) {}
 
-    // @Post()
-    // async createRecette(@Body() recetteDto: RecetteDto) {
-    //     return this.recetteService.createRecette(recetteDto);
-    // }
+    @Post()
+    async createRecette(@Body() recetteDto: RecetteDto,
+                        @Body() userDto: UserDto) {
+        const userId = recetteDto.userId;
+        return this.recetteService.createRecette(recetteDto, userDto);
+    }
 
     @Get()
     async getRecette() {
