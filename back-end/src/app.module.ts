@@ -7,10 +7,12 @@ import { RecetteModule } from './recette/recette.module';
 import { UserService } from './user/user.service';
 import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
+import { RecetteController } from './recette/recette.controller';
+import { RecetteService } from './recette/recette.service';
 
 @Module({
   imports: [ConfigModule, PrismaModule, RecetteModule, UserModule],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  controllers: [AppController, UserController, RecetteController],
+  providers: [AppService, UserService, RecetteService],
 })
 export class AppModule {}
