@@ -85,7 +85,7 @@ export default function RecetteFormulaire() {
        
             <div className="flex flex-col w-5/5 px-8
         mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
-         md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16">
+         md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16 md:w-full">
                  <h1 className="font-mono px-8  text-center text-slate-200 mb-6 font-bold
                                 mobile:text-3xl 
                                 md:text-5xl">Nouvelle recette</h1>
@@ -93,7 +93,7 @@ export default function RecetteFormulaire() {
                     <input
                         className="bg-orange-100 rounded-md text-center
                          mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
-                          md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
+                          md:w-full  md:text-2xl md:h-12 md:pl-14 md:pr-14"
                         type="text"
                         id="title"
                         name="title"
@@ -126,7 +126,7 @@ export default function RecetteFormulaire() {
                             <input
                                 className="bg-orange-100 rounded-md text-center
                                 mobile:w-full  mobile:h-8 
-                                 md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
+                                 md:w-full md:text-2xl md:h-12"
                                 type="text"
                                 placeholder="Quantité"
                                 name="quantite"
@@ -136,7 +136,7 @@ export default function RecetteFormulaire() {
                             <input
                                 className="bg-orange-100 rounded-md text-center
                                 mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
-                                 md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
+                                 md:w-full md:text-2xl md:h-12"
                                 type="text"
                                 placeholder="Nom"
                                 name="nom"
@@ -167,7 +167,7 @@ export default function RecetteFormulaire() {
                             <input
                                 className="bg-orange-100 rounded-md text-center
                                 mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
-                                 md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
+                                 md:w-full md:text-2xl md:h-12 md:pl-36 md:pr-36"
                                 type="text"
                                 placeholder="Étape"
                                 name="etape"
@@ -176,14 +176,14 @@ export default function RecetteFormulaire() {
                             />
                             <button
                                 type="button"
-                                className="ml-2 border-2 rounded-lg px-2  text-white bg-zinc-950 "
+                                className="ml-2 border-2 rounded-md px-2  text-white bg-zinc-950"
                                 onClick={() => handleRemoveField(index, "instructions")}
                             >
                                 -
                             </button>
                             <button
                         type="button"
-                        className=" border-2 rounded-md px-2   text-white bg-zinc-950 flex"
+                        className=" border-2 rounded-md px-2   text-white bg-zinc-950"
                         onClick={() => handleAddField("instructions")}
                     >
                         +
