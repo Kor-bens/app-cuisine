@@ -19,6 +19,7 @@ function FormulaireInscription() {
   });
 
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
@@ -45,7 +46,7 @@ function FormulaireInscription() {
     let response;
 
     try {
-      response = await axios.post("/users", {
+      response = await axios.post("http://localhost:3003/users", {
         nom: formData.nom,
         prenom: formData.prenom,
         email: formData.email,
@@ -53,16 +54,19 @@ function FormulaireInscription() {
       });
 
       console.log("Réponse du serveur :", response.data);
-
-      if (response.data.exists) {
-        setErrorMessage("L'adresse e-mail est déjà utilisée.");
-        return;
+      setSuccessMessage('Inscription réussite');
+      setErrorMessage(""); 
+      if (response.data.existingUser) {
+        setErrorMessage("L'adresse e-mail est déjà utiliséeddd.");
+      }else {
+        // setRedirectToDashboard(true)
       }
 
       // Si toutes les vérifications passent, envoyer le formulaire...
     } catch (error) {
-      console.error("Erreur lors de la soumission du formulaire :", error);
-      setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
+      console.log("Erreur lors de la soumission du formulaire :", error);
+      setErrorMessage(error.response.data.message || "Une erreur s'est produite");
+      setSuccessMessage(""); // Réinitialiser le message de réussite
     }
 
     // Validation des champs...
@@ -82,6 +86,10 @@ function FormulaireInscription() {
     } else if (emptyFields.length > 1) {
       errorMessage = `Veuillez remplir les champs suivants : ${emptyFields.join(", ")}`;
     }
+
+    // if (redirectToDashboard) {
+    //   return <Redirect to="/dashboard" />; // Rediriger vers la page de dashboard si redirectToDashboard est vrai
+    // }
 
     if (errorMessage) {
       setErrorMessage(errorMessage);
@@ -108,9 +116,11 @@ function FormulaireInscription() {
         <h1 className="px-8 text-center text-slate-200 mb-6 font-bold 
         mobile:text-3xl 
         md:text-5xl">Créer un compte</h1>
-        {errorMessage && <p className="text-red-500 text-center px-8
+        {errorMessage && <p className="text-red-500 text-center px-8 text-3xl font-bold
          md:text-4xl md:font-bold
          lg:text-2xl">{errorMessage}</p>}
+         {successMessage && <p className="text-green-500 text-center text-3xl font-bold
+         ">{successMessage}</p>}
         <div className="input-group">
           <div className="input-container md:px-48">
             <input
