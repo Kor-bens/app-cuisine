@@ -107,7 +107,8 @@ function FormulaireInscription() {
         mobile:text-3xl 
         md:text-5xl">Créer un compte</h1>
         {errorMessage && <p className="text-red-500 text-center px-8
-         md:text-4xl md:font-bold">{errorMessage}</p>}
+         md:text-4xl md:font-bold
+         lg:text-2xl">{errorMessage}</p>}
         <div className="input-group">
           <div className="input-container md:px-48">
             <input
