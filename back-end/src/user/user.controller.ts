@@ -8,6 +8,11 @@ export class UserController {
 
   @Post()
   async createUser(@Body() createUserDto: CreateUserDto) {
-    return this.userService.createUser(createUserDto)
+    try {
+      const newUser = await this.userService.createUser(createUserDto);
+      return { message: 'Inscription réussie!', user: newUser };
+  } catch (error) {
+      return { message: error.message }; // Retourner le message d'erreur
   }
+}
 }
