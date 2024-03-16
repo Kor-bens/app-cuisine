@@ -6,8 +6,8 @@ export default function AjoutRecette(){
     return ( 
 <>
 
-<RecetteFormulaire />
 <NavBar/>
+<RecetteFormulaire />
 </>
     )
 }
