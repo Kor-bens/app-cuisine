@@ -101,7 +101,7 @@ function FormulaireInscription() {
         className="flex flex-col w-12/12  
         mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16
-        lg:h-full lg:w-6/12 lg:mx-96"
+        lg:h-full lg:w-6/12 lg:mx-auto"
       >
         <h1 className="px-8 text-center text-slate-200 mb-6 font-bold 
         mobile:text-3xl 
