@@ -9,8 +9,9 @@ export default function NavBar() {
     <nav className="  border-t shadow-md 
     mobile:fixed mobile:bottom-0 mobile:left-0 mobile:w-full
     md:text-2xl"> 
-    <div className="flex mb-0 ">
-      <ul className="max-w-screen-lg w-full flex place-content-evenly space-x-4 border-2 border-zinc-800 text-zinc-50 font-bold  rounded-xl py-11">
+    <div className="flex 
+    md:mb-0 ">
+      <ul className="w-full flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl py-11">
         <li>
           <div className="flex flex-col items-center">
             <HomeIcon className=" text-black 
