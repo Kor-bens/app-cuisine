@@ -3,6 +3,8 @@ import axios from "axios";
 import "./inscription.css";
 import NavBar from "../common/navbar/Navbar";
 import backgroundImage from '../../assets/background/bg.jpg'
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 function FormulaireInscription() {
   const styles = {
@@ -151,7 +153,7 @@ function FormulaireInscription() {
         <div className="input-group">
           <div className="input-container md:px-48 relative">
             <input
-              className="bg-orange-100 rounded-md text-center 
+              className="bg-orange-100 rounded-md text-center
               mobile:w-full mobile:pl-14 mobile:pr-14 mobile:h-8 mobile:mt-1 mobile:mb-4 
               md:w-full md:mb-4 md:mt-4 md:text-2xl md:h-12 md:pl-3 md:pr-16
               lg:pl-16"
@@ -167,9 +169,9 @@ function FormulaireInscription() {
               className="absolute flex justify-center h-full text-zinc-600 font-bold 
               mobile:right-0 mobile:px-4 mobile:h-9 
               md:right-48 md:px-4 md:text-2xl
-              lg:h-9 "
+              lg:items-center"
             >
-              {showPassword ? "Cacher" : "Afficher"}
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
             </button>
           </div>
         </div>
@@ -194,7 +196,7 @@ function FormulaireInscription() {
         </div> */}
         <div>
           <button
-            className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500
+            className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500 hover:bg-orange-700
              mobile:w-12/12 mobile:h-9 
              md:text-2xl md:h-12 md:mb-3
              "
