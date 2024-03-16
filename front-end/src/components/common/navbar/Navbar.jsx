@@ -11,7 +11,7 @@ export default function NavBar() {
     md:text-2xl"> 
     <div className="flex 
     md:mb-0 ">
-      <ul className="w-full flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl py-11">
+      <ul className="w-full items-center flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl h-28">
         <li>
           <div className="flex flex-col items-center">
             <HomeIcon className=" text-black 
