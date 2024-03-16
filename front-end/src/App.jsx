@@ -6,6 +6,7 @@ import Connexion from "./components/Connexion/Connexion";
 import AjoutRecette from "./components/AjoutRecette/AjoutRecette";
 import ListeRecettes from "./components/ListeRecettes/ListeRecettes";
 import FormulaireInscription from "./components/Inscription/Inscription";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route path="/inscription" element={<FormulaireInscription />} />
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/mes-recettes" element={<ListeRecettes />} />
-          {/* <Route path="/dashboard" element={<Dashboard/>} />  */}
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          
         </Routes>
       </BrowserRouter>
     </>
