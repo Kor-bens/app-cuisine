@@ -76,7 +76,7 @@ export default function Connexion() {
       <>
       <NavBar />
       <form
-        className="flex flex-col w-12/12  
+        className="flex flex-col w-12/12 mx-auto
         mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16
         lg:h-full lg:w-6/12 lg:mx-auto
@@ -123,7 +123,7 @@ export default function Connexion() {
           <div className="input-container md:px-48 relative">
             <input
               className="bg-orange-100 rounded-md text-center 
-              mobile:w-full mobile:mb-4 mobile:mt-6 mobile:h-8 mobile:pl-14 mobile:pr-14 
+              mobile:w-full mobile:mb-0 mobile:mt-0 mobile:h-8 mobile:pl-14 mobile:pr-14 
               md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12
               "
               type={showPassword ? "text" : "password"}
@@ -144,7 +144,7 @@ export default function Connexion() {
         </div>
         <button
           className="w-4/12 mx-auto text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500 hover:bg-orange-700
-             mobile:w-12/12 mobile:h-9 
+             mobile:w-12/12 mobile:h-9 mobile:w-6/12 mobile:mb-3
              md:text-2xl md:h-12 md:mb-3
              "
           type="submit"
@@ -152,7 +152,9 @@ export default function Connexion() {
           Se connecter
         </button>
 
-        <p className="text-slate-200 font-bold">Vous n'avez pas de compte ? <Link to="/inscription" className=" underline decoration-1 hover:text-slate-300">Inscrivez-vous</Link> </p>
+        <p className="text-slate-200 font-bold mobile:px-12 text-center">
+          Vous n'avez pas de compte ? 
+          <Link to="/inscription" className=" underline decoration-1 hover:text-slate-300">Inscrivez-vous</Link> </p>
               </form>
 
     </>
