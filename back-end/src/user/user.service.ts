@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/prisma/prisma.service';
 import { CreateUserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
-
+import { LoginUserDto } from './loginUser.dto';
 @Injectable()
 export class UserService {
     constructor(private readonly prisma: PrismaService) {}
@@ -30,4 +30,31 @@ export class UserService {
             },
         });
     }
+
+    async connectUser(loginUserDto: LoginUserDto) {
+        const { usernameOrEmail, password } = loginUserDto;
+        
+        // Vérifier si l'identifiant de l'utilisateur est un email ou un nom d'utilisateur
+        const user = await this.prisma.user.findFirst({
+          where: {
+            OR: [
+              { email: usernameOrEmail },
+              { nom: usernameOrEmail },
+            ],
+          },
+        });
+    
+        if (!user) {
+          return null; // Aucun utilisateur trouvé
+        }
+    
+        // Vérifier le mot de passe
+        const isPasswordValid = await bcrypt.compare(password, user.motDePasse);
+    
+        if (!isPasswordValid) {
+          return null; // Mot de passe incorrect
+        }
+    
+        return user; // Retourner l'utilisateur s'il est trouvé et que le mot de passe est valide
+      }
 }
