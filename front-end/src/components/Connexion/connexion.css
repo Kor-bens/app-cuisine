@@ -1,10 +1,15 @@
 body{
     display:flex;
     flex-direction:column;
-    background-image: url('../../assets/background/bg-legumes.jpg');
+    background-image: url('../../assets/background/bg-connexion-inscription.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
   
+  }
+
+  .input-container {
+    display: flex;
+    align-items: center; /* Alignement vertical */
   }
