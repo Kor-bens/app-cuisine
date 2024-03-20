@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../common/navbar/Navbar";
+import { Link } from "react-router-dom";
 import "./connexion.css";
 export default function Connexion() {
   // TODO FORMULAIRE DE CONNEXION
@@ -55,7 +56,10 @@ export default function Connexion() {
         >
           Se connecter
         </button>
-      </form>
+
+        <p className="text-slate-200 font-bold">Vous n'avez pas de compte ? <Link to="/inscription" className=" underline decoration-1 hover:text-slate-300">Inscrivez-vous</Link> </p>
+              </form>
+
     </>
   );
 }

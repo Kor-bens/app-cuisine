@@ -5,6 +5,8 @@ import NavBar from "../common/navbar/Navbar";
 import backgroundImage from "../../assets/background/bg.jpg";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 
 function FormulaireInscription() {
   const styles = {
@@ -234,6 +236,8 @@ function FormulaireInscription() {
           >
             S'inscrire
           </button>
+          <p className="text-slate-200 font-bold">Vous avez un compte ? <Link to="/connexion" className=" underline decoration-1 hover:text-slate-300">Connectez-vous</Link> </p>
+
         </div>
       </form>
     </>
