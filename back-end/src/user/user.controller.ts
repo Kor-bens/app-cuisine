@@ -11,7 +11,7 @@ export class UserController {
   async createUser(@Body() createUserDto: CreateUserDto) {
     try {
       const newUser = await this.userService.createUser(createUserDto);
-      return { message: 'Inscription réussie!', user: newUser };
+      return { SuccessMessage: 'Inscription réussie !', user: newUser };
   } catch (error) {
       return { message: error.message }; // Retourner le message d'erreur
   }
