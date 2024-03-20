@@ -3,6 +3,7 @@ import { PrismaService } from 'src/shared/prisma/prisma.service';
 import { CreateUserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
 import { LoginUserDto } from './loginUser.dto';
+import * as jwt from 'jsonwebtoken';
 @Injectable()
 export class UserService {
     constructor(private readonly prisma: PrismaService) {}
@@ -32,14 +33,14 @@ export class UserService {
     }
 
     async connectUser(loginUserDto: LoginUserDto) {
-        const { usernameOrEmail, password } = loginUserDto;
+        const { nomOrEmail, motDePasse } = loginUserDto;
         
         // Vérifier si l'identifiant de l'utilisateur est un email ou un nom d'utilisateur
         const user = await this.prisma.user.findFirst({
           where: {
             OR: [
-              { email: usernameOrEmail },
-              { nom: usernameOrEmail },
+              { email: nomOrEmail },
+              { nom: nomOrEmail },
             ],
           },
         });
@@ -49,12 +50,14 @@ export class UserService {
         }
     
         // Vérifier le mot de passe
-        const isPasswordValid = await bcrypt.compare(password, user.motDePasse);
+        const isPasswordValid = await bcrypt.compare(motDePasse, user.motDePasse);
     
         if (!isPasswordValid) {
           return null; // Mot de passe incorrect
         }
-    
-        return user; // Retourner l'utilisateur s'il est trouvé et que le mot de passe est valide
+        const token = jwt.sign({ userId: user.id }, 'votre_secret', { expiresIn: '1h' });
+
+        return token; // Retourne le jeton d'authentification
+        // return user; // Retourner l'utilisateur s'il est trouvé et que le mot de passe est valide
       }
 }
