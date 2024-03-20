@@ -17,22 +17,16 @@ function FormulaireInscription() {
     prenom: "",
     email: "",
     motDePasse: "",
-    // confirmationMotDePasse: "",
   });
 
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-
-  // const toggleShowPasswordConfirm = () => {
-  //   setShowPasswordConfirm(!showPasswordConfirm);
-  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
