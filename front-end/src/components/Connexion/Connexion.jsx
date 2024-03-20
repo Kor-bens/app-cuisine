@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../common/navbar/Navbar";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./connexion.css";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -8,7 +9,7 @@ export default function Connexion() {
   // TODO FORMULAIRE DE CONNEXION
   const [formData, setFormData] = useState({
     nomOrEmail: "",
-    mdp: "",
+    motDePasse: "",
   })
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -16,6 +17,14 @@ export default function Connexion() {
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
   
   const handleSubmit = async (e) => {
@@ -25,17 +34,32 @@ export default function Connexion() {
 
     try {
       response = await axios.post("http://localhost:3003/users/connexion", {
-        nom: formData.nomOrEmail,
-        motDePasse: formData.mdp,
+        nomOrEmail: formData.nomOrEmail,
+        motDePasse: formData.motDePasse,
       });
 
       console.log("Réponse du serveur :", response.data);
-      setSuccessMessage("connexion réussite");
       setErrorMessage("");
-      if (response.data.existingUser) {
-        setErrorMessage("L'adresse e-mail est déjà utilisée.");
-      } else {
-        // setRedirectToDashboard(true)
+      
+      // Validation des champs...
+    const fieldsToCheck = [
+      "",
+      "",
+    ];
+    const emptyFields = fieldsToCheck.filter((field) => !formData[field]);
+
+    let errorMessage = "";
+
+    if (emptyFields.length === 1) {
+      errorMessage = `Veuillez remplir le champ vide`;
+    } else if (emptyFields.length > 1) {
+      errorMessage = `Veuillez remplir les champs vides`;
+    }
+      if(response.data.message){
+        setErrorMessage(response.data.message);
+        setSuccessMessage(response.data.SuccessMessage);
+      }else{
+        setSuccessMessage("Inscription réussie")
       }
 
       // Si toutes les vérifications passent, envoyer le formulaire...
@@ -44,25 +68,13 @@ export default function Connexion() {
       setErrorMessage(
         error.response.data.message || "Une erreur s'est produite"
       );
+      console.log(setErrorMessage(
+        error.response.data.message || "Une erreur s'est produite"
+      ))
       setSuccessMessage(""); // Réinitialiser le message de réussite
     }
 
-    // Validation des champs...
-    const fieldsToCheck = [
-      "NomOrMail",
-      "mdp",
-    ];
-    const emptyFields = fieldsToCheck.filter((field) => !formData[field]);
-
-    let errorMessage = "";
-
-    if (emptyFields.length === 1) {
-      errorMessage = `Veuillez remplir le champ suivant : ${emptyFields[0]}`;
-    } else if (emptyFields.length > 1) {
-      errorMessage = `Veuillez remplir les champs suivants : ${emptyFields.join(
-        ", "
-      )}`;
-    }
+    
 
     if (errorMessage) {
       setErrorMessage(errorMessage);
@@ -75,7 +87,8 @@ export default function Connexion() {
   return (
       <>
       <NavBar />
-      <form
+      <form 
+      onSubmit={handleSubmit}
         className="flex flex-col w-12/12 mx-auto
         mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16
@@ -91,7 +104,8 @@ export default function Connexion() {
         </h1>
         {errorMessage && (
           <p
-            className="text-red-500 text-center px-8 text-3xl font-bold
+            className="text-red-700 text-center px-8 text-3xl font-bold
+            mobile:text-lg
          md:text-4xl md:font-bold
          lg:text-2xl"
           >
@@ -100,7 +114,10 @@ export default function Connexion() {
         )}
         {successMessage && (
           <p
-            className="text-green-500 text-center text-3xl font-bold
+            className="text-green-700 text-center text-3xl font-bold
+            mobile:text-lg
+            md:text-4xl md:font-bold
+            lg:text-2xl
          "
           >
             {successMessage}
@@ -115,7 +132,9 @@ export default function Connexion() {
               "
               type="text"
               placeholder="Nom ou adresse mail"
-              name="NomOrMail"
+              name="nomOrEmail"
+              value={formData.nomOrEmail}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -128,7 +147,9 @@ export default function Connexion() {
               "
               type={showPassword ? "text" : "password"}
               placeholder="*******"
-              name="mdp"
+              name="motDePasse"
+              value={formData.motDePasse}
+              onChange={handleChange}
             />
             <button
               type="button"
