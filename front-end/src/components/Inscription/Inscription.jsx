@@ -185,7 +185,7 @@ function FormulaireInscription() {
         <div className="input-group">
           <div className="input-container md:px-48 relative">
             <input
-              className="bg-orange-100 rounded-md text-center
+              className="bg-orange-100 rounded-md text-center items-center
               mobile:w-full mobile:pl-14 mobile:pr-14 mobile:h-8 mobile:mt-1 mobile:mb-4 
               md:w-full md:mb-4 md:mt-4 md:text-2xl md:h-12 md:pl-3 md:pr-16
               lg:pl-16"
@@ -198,7 +198,7 @@ function FormulaireInscription() {
             <button
               type="button"
               onClick={toggleShowPassword}
-              className="absolute flex justify-center h-full text-zinc-600 font-bold 
+              className="absolute flex justify-center text-zinc-600 font-bold items-center
               mobile:right-0 mobile:px-4 mobile:h-9 
               md:right-48 md:px-4 md:text-2xl
               lg:items-center"
@@ -207,25 +207,6 @@ function FormulaireInscription() {
             </button>
           </div>
         </div>
-        {/* <div className="input-group">
-          <div className="input-container md:px-48">
-            <input
-              className="bg-orange-100 rounded-md text-center mobile:w-full mobile:mt-1 mobile:mb-4 mobile:h-8 mobile:pl-14 mobile:pr-14 md:w-full md:mb-4 md:mt-4 md:text-2xl md:h-12 md:pl-3 md:pr-16"
-              type={showPasswordConfirm ? "text" : "password"}
-              name="confirmationMotDePasse"
-              placeholder="******"
-              value={formData.confirmationMotDePasse}
-              onChange={handleChange}
-            />
-            <button
-              type="button"
-              onClick={toggleShowPasswordConfirm}
-              className="absolute flex justify-center h-full text-zinc-600 font-bold mobile:right-16 mobile:px-4 mobile:h-9 md:right-56 md:px-4 md:text-2xl"
-            >
-              {showPasswordConfirm ? "Cacher" : "Afficher"}
-            </button>
-          </div>
-        </div> */}
         <div>
           <button
             className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500 hover:bg-orange-700
