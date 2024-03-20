@@ -56,21 +56,30 @@ function FormulaireInscription() {
       });
 
       console.log("Réponse du serveur :", response.data);
-      setSuccessMessage("Inscription réussite");
+      
       setErrorMessage("");
       if (response.data.existingUser) {
-        setErrorMessage("L'adresse e-mail est déjà utiliséeddd.");
+        setErrorMessage("L'adresse e-mail est déjà utilisée.");
       } else {
         // setRedirectToDashboard(true)
       }
-
+      
+      if(response.data.message){
+        setErrorMessage(response.data.message);
+        setSuccessMessage(response.data.SuccessMessage);
+      }else{
+        setSuccessMessage("Inscription réussie")
+      }
       // Si toutes les vérifications passent, envoyer le formulaire...
     } catch (error) {
       console.log("Erreur lors de la soumission du formulaire :", error);
       setErrorMessage(
-        error.response.data.message || "Une erreur s'est produite"
+        error.response?.data?.message || "Une erreur s'est produite"
       );
-      setSuccessMessage(""); // Réinitialiser le message de réussite
+      console.log()
+      setSuccessMessage(setErrorMessage(
+        error.response?.data?.message || "Une erreur s'est produite"
+      )); // Réinitialiser le message de réussite
     }
 
     // Validation des champs...
@@ -79,11 +88,11 @@ function FormulaireInscription() {
       "prenom",
       "email",
       "motDePasse",
-      // "confirmationMotDePasse",
     ];
     const emptyFields = fieldsToCheck.filter((field) => !formData[field]);
 
     let errorMessage = "";
+    let successMessage= "";
 
     if (emptyFields.length === 1) {
       errorMessage = `Veuillez remplir le champ suivant : ${emptyFields[0]}`;
@@ -92,21 +101,16 @@ function FormulaireInscription() {
         ", "
       )}`;
     }
-
-    // if (redirectToDashboard) {
-    //   return <Redirect to="/dashboard" />; // Rediriger vers la page de dashboard si redirectToDashboard est vrai
-    // }
+    if (successMessage) {
+      setSuccessMessage(successMessage);
+      return;
+    }
 
     if (errorMessage) {
       setErrorMessage(errorMessage);
       return;
     }
 
-    // Vérification de la correspondance des mots de passe
-    // if (formData.motDePasse !== formData.confirmationMotDePasse) {
-    //   setErrorMessage("Les mots de passe ne correspondent pas.");
-    //   return;
-    // }
   };
 
   return (
@@ -114,7 +118,7 @@ function FormulaireInscription() {
       <NavBar />
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col w-12/12  
+        className="flex flex-col w-12/12 mx-auto
         mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16
         lg:h-full lg:w-6/12 lg:mx-auto"
@@ -128,7 +132,8 @@ function FormulaireInscription() {
         </h1>
         {errorMessage && (
           <p
-            className="text-red-500 text-center px-8 text-3xl font-bold
+            className="text-red-700 text-center px-8 text-3xl font-bold
+            mobile:text-lg
          md:text-4xl md:font-bold
          lg:text-2xl"
           >
@@ -137,7 +142,10 @@ function FormulaireInscription() {
         )}
         {successMessage && (
           <p
-            className="text-green-500 text-center text-3xl font-bold
+            className="text-green-700 text-center text-3xl font-bold
+            mobile:text-lg
+            md:text-4xl md:font-bold
+            lg:text-2xl
          "
           >
             {successMessage}
@@ -199,7 +207,7 @@ function FormulaireInscription() {
               type="button"
               onClick={toggleShowPassword}
               className="absolute flex justify-center text-zinc-600 font-bold items-center
-              mobile:right-0 mobile:px-4 mobile:h-9 
+              mobile:right-0 mobile:px-4 py-10
               md:right-48 md:px-4 md:text-2xl
               lg:items-center"
             >
@@ -207,19 +215,18 @@ function FormulaireInscription() {
             </button>
           </div>
         </div>
-        <div>
           <button
-            className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500 hover:bg-orange-700
-             mobile:w-12/12 mobile:h-9 
+            className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500 hover:bg-orange-700 
+             mobile:w-5/12 mobile:h-8 
              md:text-2xl md:h-12 md:mb-3
              "
             type="submit"
           >
             S'inscrire
           </button>
-          <p className="text-slate-200 font-bold">Vous avez un compte ? <Link to="/connexion" className=" underline decoration-1 hover:text-slate-300">Connectez-vous</Link> </p>
-
-        </div>
+        <p className="text-slate-200 font-bold mobile:px-12 text-center">
+          Vous avez un compte ?   
+           <Link to="/connexion" className=" underline decoration-1 hover:text-slate-300"> Connectez-vous</Link> </p>
       </form>
     </>
   );
