@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./inscription.css";
 import NavBar from "../common/navbar/Navbar";
-import backgroundImage from '../../assets/background/bg.jpg'
+import backgroundImage from "../../assets/background/bg.jpg";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 
 function FormulaireInscription() {
   const styles = {
-    backgroundImage: `url(${backgroundImage})`
-  }
+    backgroundImage: `url(${backgroundImage})`,
+  };
   const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
@@ -54,18 +54,20 @@ function FormulaireInscription() {
       });
 
       console.log("Réponse du serveur :", response.data);
-      setSuccessMessage('Inscription réussite');
-      setErrorMessage(""); 
+      setSuccessMessage("Inscription réussite");
+      setErrorMessage("");
       if (response.data.existingUser) {
         setErrorMessage("L'adresse e-mail est déjà utiliséeddd.");
-      }else {
+      } else {
         // setRedirectToDashboard(true)
       }
 
       // Si toutes les vérifications passent, envoyer le formulaire...
     } catch (error) {
       console.log("Erreur lors de la soumission du formulaire :", error);
-      setErrorMessage(error.response.data.message || "Une erreur s'est produite");
+      setErrorMessage(
+        error.response.data.message || "Une erreur s'est produite"
+      );
       setSuccessMessage(""); // Réinitialiser le message de réussite
     }
 
@@ -84,7 +86,9 @@ function FormulaireInscription() {
     if (emptyFields.length === 1) {
       errorMessage = `Veuillez remplir le champ suivant : ${emptyFields[0]}`;
     } else if (emptyFields.length > 1) {
-      errorMessage = `Veuillez remplir les champs suivants : ${emptyFields.join(", ")}`;
+      errorMessage = `Veuillez remplir les champs suivants : ${emptyFields.join(
+        ", "
+      )}`;
     }
 
     // if (redirectToDashboard) {
@@ -113,14 +117,30 @@ function FormulaireInscription() {
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16
         lg:h-full lg:w-6/12 lg:mx-auto"
       >
-        <h1 className="px-8 text-center text-slate-200 mb-6 font-bold 
+        <h1
+          className="px-8 text-center text-slate-200 mb-6 font-bold 
         mobile:text-3xl 
-        md:text-5xl">Créer un compte</h1>
-        {errorMessage && <p className="text-red-500 text-center px-8 text-3xl font-bold
+        md:text-5xl"
+        >
+          Créer un compte
+        </h1>
+        {errorMessage && (
+          <p
+            className="text-red-500 text-center px-8 text-3xl font-bold
          md:text-4xl md:font-bold
-         lg:text-2xl">{errorMessage}</p>}
-         {successMessage && <p className="text-green-500 text-center text-3xl font-bold
-         ">{successMessage}</p>}
+         lg:text-2xl"
+          >
+            {errorMessage}
+          </p>
+        )}
+        {successMessage && (
+          <p
+            className="text-green-500 text-center text-3xl font-bold
+         "
+          >
+            {successMessage}
+          </p>
+        )}
         <div className="input-group">
           <div className="input-container md:px-48">
             <input
