@@ -23,10 +23,10 @@ async connectUser(@Body() loginUserDto: LoginUserDto) {
     
     const user = await this.userService.connectUser(loginUserDto);
     if (!user) {
-      throw new Error('Nom d\'utilisateur ou mot de passe incorrect.');
+      throw new Error('Identifiant incorrect.');
     }
     
-    return { message: 'Connexion réussie!', user };
+    return { successMessage: 'Connexion réussie!', user };
   } catch (error) {
     return { message: error.message }; // Retourner le message d'erreur
   }
