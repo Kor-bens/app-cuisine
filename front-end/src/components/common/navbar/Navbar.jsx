@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { BiHome } from "react-icons/bi";
 // import { AddIcon } from "./icons/AddIcon"
 // import { LogInIcon } from "./icons/LogInIcon"
 import { FaRegUser } from "react-icons/fa";
@@ -15,9 +16,9 @@ export default function NavBar() {
       <ul className="w-full items-center flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl h-28">
         <li>
           <div className="flex flex-col items-center">
-            <HomeIcon className=" text-black 
+            <Link to="/"><BiHome className=" 
             mobile:h-5 mobile:w-5
-            md:hidden" />
+            md:hidden" /></Link>
             <Link to="/" className="md:text-3xl
             mobile:hidden
             ">Accueil</Link>
@@ -25,7 +26,7 @@ export default function NavBar() {
         </li>
         <li>
           <div className="flex flex-col items-center">
-            <MagnifyingGlassIcon className=" text-black 
+            <MagnifyingGlassIcon className=" 
             mobile:h-5 mobile:w-5
             md:hidden" />
             <Link to="" className="md:text-3xl
