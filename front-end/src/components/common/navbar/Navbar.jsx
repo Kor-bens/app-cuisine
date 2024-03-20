@@ -17,7 +17,7 @@ export default function NavBar() {
             <HomeIcon className=" text-black 
             mobile:h-5 mobile:w-5
             md:hidden" />
-            <a href="/" className="md:text-3xl">Accueil</a>
+            <Link to="/" className="md:text-3xl">Accueil</Link>
           </div>
         </li>
         <li>
@@ -25,24 +25,24 @@ export default function NavBar() {
             <MagnifyingGlassIcon className=" text-black 
             mobile:h-5 mobile:w-5
             md:hidden" />
-            <a href="" className="md:text-3xl">Explorer</a>
+            <Link to="" className="md:text-3xl">Explorer</Link>
           </div>
         </li>
         <li>
           <div className="flex flex-col item-center">
             {/* <AddIcon /> */}
-            <a href="/ajout" className="md:text-3xl">Ajouter</a> 
+            <Link to="/ajout" className="md:text-3xl">Ajouter</Link> 
           </div>
         </li>
         <li className="hidden md:block ">
           {" "}
           {/* Cacher l'élément sur mobile */}
-          <a href="/inscription" className="md:text-3xl">S'inscrire</a>
+          <Link to="/inscription" className="md:text-3xl">S'inscrire</Link>
         </li>
         <li>
           <div className="flex flex-col items-center">
             {/* <LogInIcon /> */}
-            <a href="" className="md:text-3xl">Se connecter</a>
+            <Link to="" className="md:text-3xl">Se connecter</Link>
           </div>
         </li>
       </ul>
