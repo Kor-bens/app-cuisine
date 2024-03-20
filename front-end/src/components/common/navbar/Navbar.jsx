@@ -33,7 +33,7 @@ export default function NavBar() {
             ">Explorer</Link>
           </div>
         </li>
-        <li>
+        {/* <li> */}
           {/* <div className="flex flex-col item-center"> */}
             {/* <AddIcon /> */}
             {/* <Link to="/ajout" className="md:text-3xl">Ajouter</Link> 
@@ -42,8 +42,7 @@ export default function NavBar() {
         <li className="hidden md:block ">
           {" "} */}
           {/* Cacher l'élément sur mobile */}
-          <Link to="/inscription" className="md:text-3xl">S'inscrire</Link>
-        </li>
+        {/* </li> */}
         {/* <li>
           <div className="flex flex-col items-center"> */}
             {/* <LogInIcon /> */}
