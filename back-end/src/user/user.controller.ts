@@ -17,15 +17,15 @@ export class UserController {
   }
 }
 
-@Post('connexion')
+@Post('connexion') 
 async connectUser(@Body() loginUserDto: LoginUserDto) {
   try {
-    // Appelez une fonction dans le service user pour gérer la connexion de l'utilisateur
+    
     const user = await this.userService.connectUser(loginUserDto);
     if (!user) {
       throw new Error('Nom d\'utilisateur ou mot de passe incorrect.');
     }
-    // Si l'utilisateur est trouvé, vous pouvez retourner un message de succès ou l'utilisateur lui-même
+    
     return { message: 'Connexion réussie!', user };
   } catch (error) {
     return { message: error.message }; // Retourner le message d'erreur
