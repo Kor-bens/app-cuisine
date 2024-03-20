@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 // import { AddIcon } from "./icons/AddIcon"
 // import { LogInIcon } from "./icons/LogInIcon"
+import { FaRegUser } from "react-icons/fa";
 
 export default function NavBar() {
   return (
@@ -17,7 +18,9 @@ export default function NavBar() {
             <HomeIcon className=" text-black 
             mobile:h-5 mobile:w-5
             md:hidden" />
-            <Link to="/" className="md:text-3xl">Accueil</Link>
+            <Link to="/" className="md:text-3xl
+            mobile:hidden
+            ">Accueil</Link>
           </div>
         </li>
         <li>
@@ -25,24 +28,35 @@ export default function NavBar() {
             <MagnifyingGlassIcon className=" text-black 
             mobile:h-5 mobile:w-5
             md:hidden" />
-            <Link to="" className="md:text-3xl">Explorer</Link>
+            <Link to="" className="md:text-3xl
+            mobile:hidden
+            ">Explorer</Link>
           </div>
         </li>
         <li>
-          <div className="flex flex-col item-center">
+          {/* <div className="flex flex-col item-center"> */}
             {/* <AddIcon /> */}
-            <Link to="/ajout" className="md:text-3xl">Ajouter</Link> 
+            {/* <Link to="/ajout" className="md:text-3xl">Ajouter</Link> 
           </div>
         </li>
         <li className="hidden md:block ">
-          {" "}
+          {" "} */}
           {/* Cacher l'élément sur mobile */}
           <Link to="/inscription" className="md:text-3xl">S'inscrire</Link>
         </li>
+        {/* <li>
+          <div className="flex flex-col items-center"> */}
+            {/* <LogInIcon /> */}
+            {/* <Link to="" className="md:text-3xl">Se connecter</Link> */}
+          {/* </div>
+        </li> */}
         <li>
           <div className="flex flex-col items-center">
             {/* <LogInIcon /> */}
-            <Link to="" className="md:text-3xl">Se connecter</Link>
+            <Link to="/connexion" className="
+            mobile:hidden
+            md:hidden">Mon compte</Link>
+            <Link to="/connexion" className=""><FaRegUser/></Link>
           </div>
         </li>
       </ul>
