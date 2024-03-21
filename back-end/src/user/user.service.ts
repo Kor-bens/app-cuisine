@@ -58,7 +58,7 @@ export class UserService {
         }
         const token = jwt.sign({ userId: user.id }, tokenEncrypte, { expiresIn: '30min' });
 
-        return token; // Retourne le jeton d'authentification
+        return { token, userName: user.nom }; // Retourne le jeton d'authentification et le nom 
         // return user; // Retourner l'utilisateur s'il est trouvé et que le mot de passe est valide
       }
 }
