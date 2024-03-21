@@ -60,6 +60,10 @@ export default function Connexion() {
         setSuccessMessage(response.data.SuccessMessage);
       }else{
         setSuccessMessage("Inscription réussie")
+
+        localStorage.setItem('token', response.data.token);
+        console.log("Token enregistré :", response.data.token);
+        console.log("Réponse complète du serveur :", response);
       }
 
       // Si toutes les vérifications passent, envoyer le formulaire...
