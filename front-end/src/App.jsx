@@ -7,6 +7,7 @@ import AjoutRecette from "./components/AjoutRecette/AjoutRecette";
 import ListeRecettes from "./components/ListeRecettes/ListeRecettes";
 import FormulaireInscription from "./components/Inscription/Inscription";
 import Dashboard from "./components/Dashboard/Dashboard";
+import MaCuisine from "./components/MaCuisine/MaCuisine";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/mes-recettes" element={<ListeRecettes />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          
+          <Route path="/ma-cuisine" element={<MaCuisine />} />
         </Routes>
       </BrowserRouter>
     </>
