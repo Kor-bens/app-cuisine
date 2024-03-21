@@ -6,7 +6,7 @@ import axios from "axios";
 import "./connexion.css";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
-
+import { updateUser } from '../../userUtils';
 
 export default function Connexion() {
   
@@ -76,6 +76,7 @@ export default function Connexion() {
         console.log("Token enregistré :", response.data.token);
         console.log("Réponse complète du serveur :", response);
         setRedirectToDashboard(true);
+        updateUser(response.data.userName, setUserName);
       }
 
       // Si toutes les vérifications passent, envoyer le formulaire...
