@@ -19,7 +19,7 @@ function App() {
           <Route path="/inscription" element={<FormulaireInscription />} />
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/mes-recettes" element={<ListeRecettes />} />
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/dashboard" element={<Dashboard />} />
           
         </Routes>
       </BrowserRouter>
