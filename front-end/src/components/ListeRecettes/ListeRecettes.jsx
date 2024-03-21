@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import NavBar from '../Dashboard/components/Navbar';
+import { Link } from 'react-router-dom';
 // TODO AFFICHER LA LISTE DES RECETTES PAR UTILISATEUR
 export default function ListeRecettes() {
   const [listeRecettes, setListeRecettes] = useState([]);
@@ -24,10 +26,11 @@ export default function ListeRecettes() {
 
   return (
     <>
-    <div className='grid grid-cols-2 gap-1 text-center'>
-
-    </div>
-    <div className='col-span-1 cursor-pointer'>
+    {/* <div className='grid grid-cols-5 gap-1 text-center'>
+      <div className='col-span-0 border'>
+        
+      </div> */}
+<div className='col-span-1 cursor-pointer border rounded-md  h-full'>
       {listeRecettes.map((recette, index) => (
         <div key={recette.id} className='border-solid border-2 border-gray-500 mb-2  hover:bg-stone-800 hover:opacity-80'
          onClick={() => handleRecetteClick(recette)}>
@@ -36,9 +39,9 @@ export default function ListeRecettes() {
       ))}
     </div>
 
-<div>
+
   {selectedRecette && (
-  <div className='border-solid border-2 border-sky-500 mb-2 hover:bg-stone-800 hover:opacity-80'>
+  <div className='col-span-2 border-solid border mb-2 hover:bg-stone-800 hover:opacity-80 rounded-md'>
     <h2 className='text-slate-50 font-bold'>Recette : {selectedRecette.title}</h2>
     <p className='text-slate-50 font-bold'>{selectedRecette.description}</p>
     <h3 className='text-slate-50 font-bold'>Ingrédients :</h3>
@@ -57,7 +60,9 @@ export default function ListeRecettes() {
     <button className='py-1 px-1 border-solid border-1 border-black rounded-lg bg-red-500 hover:bg-red-700 text-white' >Supprimer</button>
   </div>
 )}
-</div>
+{/* </div> */}
+    
+    
 </>
   );
 }
