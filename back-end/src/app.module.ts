@@ -9,9 +9,15 @@ import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
 import { RecetteController } from './recette/recette.controller';
 import { RecetteService } from './recette/recette.service';
+// import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [ConfigModule, PrismaModule, RecetteModule, UserModule],
+  imports: [ConfigModule, PrismaModule, RecetteModule, UserModule, 
+    // JwtModule.register({
+    //   secret: process.env.JWT_SECRET,
+    //   signOptions: { expiresIn: '1h' }, 
+    // }),
+  ],
   controllers: [AppController, UserController, RecetteController],
   providers: [AppService, UserService, RecetteService],
 })
