@@ -34,7 +34,8 @@ export class UserService {
 
     async connectUser(loginUserDto: LoginUserDto) {
         const { nomOrEmail, motDePasse } = loginUserDto;
-        
+        const crypto = require('crypto');
+        const tokenEncrypte = crypto.randomBytes(32).toString('hex');
         // Vérifier si l'identifiant de l'utilisateur est un email ou un nom d'utilisateur
         const user = await this.prisma.user.findFirst({
           where: {
@@ -55,7 +56,7 @@ export class UserService {
         if (!isPasswordValid) {
           return null; // Mot de passe incorrect
         }
-        const token = jwt.sign({ userId: user.id }, 'votre_secret', { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id }, tokenEncrypte, { expiresIn: '30min' });
 
         return token; // Retourne le jeton d'authentification
         // return user; // Retourner l'utilisateur s'il est trouvé et que le mot de passe est valide
