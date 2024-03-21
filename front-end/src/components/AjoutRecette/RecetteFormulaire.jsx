@@ -79,14 +79,15 @@ export default function RecetteFormulaire() {
                 <p className="text-red-500 md:text-4xl md:font-bold md:text-center">{errorMessage}</p>
             )}
 
-        <form onSubmit={handleSubmit} className=" flex flex-col w-5/5 mt-96 
+        <form onSubmit={handleSubmit} className=" col-span-2 cursor-pointer border rounded-md w-5/5 mt-96 
         mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full mobile:px-8
-         md:text-center md:justify-center md:w-5/5 md:mt-16
-         lg:w-5/12 lg:mx-auto">
+         md:text-center md:w-5/5 md:mt-16
+         lg:w-12/12 lg:mx-auto lg:mt-0">
        
             <div className="flex flex-col w-5/5 px-8 
         mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16 md:w-full
+         lg:mt-0
          ">
                  <h1 className="font-mono px-8  text-center text-slate-200 mb-6 font-bold
                                 mobile:text-3xl 
