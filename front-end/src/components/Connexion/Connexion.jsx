@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../common/navbar/Navbar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./connexion.css";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
+
+
 export default function Connexion() {
-  // TODO FORMULAIRE DE CONNEXION
+  
   const [formData, setFormData] = useState({
     nomOrEmail: "",
     motDePasse: "",
@@ -14,6 +17,8 @@ export default function Connexion() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [redirectToDashboard, setRedirectToDashboard] = useState(false);
+  const navigate = useNavigate();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -27,6 +32,12 @@ export default function Connexion() {
     });
   };
   
+  useEffect(() => {
+    if (redirectToDashboard) {
+      navigate("/dashboard");
+    }
+  }, [redirectToDashboard, navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -64,6 +75,7 @@ export default function Connexion() {
         localStorage.setItem('token', response.data.token);
         console.log("Token enregistré :", response.data.token);
         console.log("Réponse complète du serveur :", response);
+        setRedirectToDashboard(true);
       }
 
       // Si toutes les vérifications passent, envoyer le formulaire...
