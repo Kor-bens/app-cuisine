@@ -26,11 +26,9 @@ export default function ListeRecettes() {
 
   return (
     <>
-    {/* <div className='grid grid-cols-5 gap-1 text-center'>
-      <div className='col-span-0 border'>
-        
-      </div> */}
-<div className='col-span-1 cursor-pointer border rounded-md  h-full'>
+    
+<div className='col-span-1 cursor-pointer border rounded-md  h-full
+                '>
       {listeRecettes.map((recette, index) => (
         <div key={recette.id} className='border-solid border-2 border-gray-500 mb-2  hover:bg-stone-800 hover:opacity-80'
          onClick={() => handleRecetteClick(recette)}>
@@ -60,7 +58,7 @@ export default function ListeRecettes() {
     <button className='py-1 px-1 border-solid border-1 border-black rounded-lg bg-red-500 hover:bg-red-700 text-white' >Supprimer</button>
   </div>
 )}
-{/* </div> */}
+
     
     
 </>
