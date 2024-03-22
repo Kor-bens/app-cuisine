@@ -3,19 +3,10 @@ import { Link } from "react-router-dom";
 import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { GiCookingPot } from "react-icons/gi";
 import { BiHome } from "react-icons/bi";
-// import { AddIcon } from "./icons/AddIcon"
-// import { LogInIcon } from "./icons/LogInIcon"
 import { FaRegUser } from "react-icons/fa";
 import RecetteFormulaire from "../../AjoutRecette/RecetteFormulaire";
 import ListeRecettes from "../../ListeRecettes/ListeRecettes";
 import { updateUser } from '../../../userUtils';
-
-
-//TODO styliser le dropDown de ma cuisine 
-//TODO trouver un background pour le menu deroulant
-//TODO afficher liste de cuisine à l'utilisateur 
-//TODO choix pour l'affichage des fonctionnalités cuisine "Ma cuisine" (nouvelle page ou affiché directement sur le dashboard)
-//TODO résoudre affichage du nom de l'user
 
 export default function NavBar() {
     const [showDropDown, setShowDropDown] = useState(false);
@@ -31,39 +22,52 @@ export default function NavBar() {
 
     const toggleDropDownCuisine = () => {
         setShowDropDownCuisine(!showDropDownCuisine);
-
     };
     
     const toggleRecetteFormulaire = () => {
         setShowRecetteFormulaire(!showRecetteFormulaire);
-        setShowListeRecette(false)
+        setShowListeRecette(false);
+        setShowNavigationMaCuisine(true); // Afficher la section Ma Cuisine lors du clic sur "Ma cuisine"
     };
 
     const toggleShowListRecette = () => {
         setShowListeRecette(!showListeRecette);
         setShowRecetteFormulaire(false);
-
+        setShowNavigationMaCuisine(true); // Afficher la section Ma Cuisine lors du clic sur "Ma cuisine"
     };
 
     const toggleShowNavigationMaCuisineListe = () => {
-        setShowNavigationMaCuisine(!showNavigationMaCuisine)
-        setShowListeRecette(!showListeRecette)
-        setShowRecetteFormulaire(false)
-
-    }
+        setShowNavigationMaCuisine(!showNavigationMaCuisine);
+        setShowListeRecette(!showListeRecette);
+        setShowRecetteFormulaire(false);
+    };
 
     const toggleShowNavigationMaCuisineFormulaire = () => {
-        setShowNavigationMaCuisine(!showNavigationMaCuisine)
-        setShowRecetteFormulaire(!showRecetteFormulaire)
-        setShowListeRecette(false)
-    }
+        setShowNavigationMaCuisine(!showNavigationMaCuisine);
+        setShowRecetteFormulaire(!showRecetteFormulaire);
+        setShowListeRecette(false);
+    };
 
-   const updateUser = (userName) => {
+    const updateUser = (userName) => {
         setUserName(userName);
     };
+
     return (
         <>
-            <nav className="border-t shadow-md md:text-2xl">
+            {showNavigationMaCuisine && (
+                <div className='grid grid-cols-5 gap-1 text-center h-full'>
+                    <div className='col-span-0 border flex flex-col rounded-md'>
+                        <div className="flex flex-col text-slate-50 font-bold">
+                            <button onClick={toggleShowListRecette}>Afficher mes recettes</button>
+                            <button onClick={toggleRecetteFormulaire}>Ajouter une recette</button>
+                        </div>
+                    </div>
+                    {showListeRecette && <ListeRecettes />}
+                    {showRecetteFormulaire && <RecetteFormulaire />}   
+                </div>
+            )}
+
+            <nav className="border-t shadow-md md:text-2xl fixed bottom-0 left-0 w-full">
                 <div className="flex md:mb-0">
                     <ul className="w-full items-center flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl h-20">
                         <li>
@@ -83,17 +87,14 @@ export default function NavBar() {
                                 <GiCookingPot className="mobile:h-5 mobile:w-5 md:hidden" />
                                 <button
                                     onMouseEnter={toggleDropDownCuisine}
-                                    // onMouseLeave={toggleDropDownCuisine}
                                     className="md:text-3xl mobile:hidden"
                                 ><Link to="/ma-cuisine">Ma cuisine</Link></button>
                                 {showDropDownCuisine && (
                                     <div onMouseLeave={toggleDropDownCuisine} className="flex flex-col absolute top-9 left-0 opacity-80 bg-zinc-800 border-zinc-800 py-2 rounded-md">
                                         <button onClick={toggleShowNavigationMaCuisineFormulaire} className="md:text-2xl mobile:hidden">
-                                            {/* <Link to="/ajout" className="md:text-2xl mobile:hidden">Ajouter une recette</Link> */}
                                             Ajouter une recette</button>
                                         <button onClick={toggleShowNavigationMaCuisineListe} className="md:text-2xl mobile:hidden">
-                                        {/* <Link to="/mes-recettes" className="md:text-2xl mobile:hidden">Afficher mes recettes</Link> */}
-                                        Afficher mes recettes</button>
+                                            Afficher mes recettes</button>
                                     </div>
                                 )}
                             </div>
@@ -119,20 +120,6 @@ export default function NavBar() {
                     </ul>
                 </div>
             </nav>
-            {showNavigationMaCuisine && (
-                <div className='grid grid-cols-5 gap-1 text-center h-full'>
-            <div className='col-span-0 border flex flex-col rounded-md'>
-        <div className="flex flex-col text-slate-50 font-bold">
-        <button onClick={toggleShowListRecette}>Afficher mes recettes</button>
-        <button onClick={toggleRecetteFormulaire}>Ajouter une recette</button>
-        </div>
-      </div>
-      {showListeRecette && <ListeRecettes />}
-      {showRecetteFormulaire && <RecetteFormulaire />}   
-            </div>
-            )}
-            
-           
         </>
     );
 }
