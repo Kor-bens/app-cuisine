@@ -72,26 +72,26 @@ export default function RecetteFormulaire() {
 
     return (
         <>
-       {submitted && (
-                <p className="text-green-500 md:text-4xl md:font-bold">Le formulaire a été soumis avec succès !</p>
-            )}
-            {errorMessage && (
-                <p className="text-red-500 md:text-4xl md:font-bold md:text-center">{errorMessage}</p>
-            )}
+       
 
         <form onSubmit={handleSubmit} className=" col-span-2 cursor-pointer border rounded-md w-5/5 mt-96 
-        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full mobile:px-8
+         mobile:w-5/5 mobile:mx-auto mobile:items-center mobile:w-full mobile:px-8 mobile:mt-16 mobile:border-none
          md:text-center md:w-5/5 md:mt-16
          lg:w-12/12 lg:mx-auto lg:mt-0">
-       
             <div className="flex flex-col w-5/5 px-8 
-        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
+         mobile:w-5/5 mobile:items-center  mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16 md:w-full
          lg:mt-0
          ">
-                 <h1 className="font-mono px-8  text-center text-slate-200 mb-6 font-bold
+                 <h1 className="font-mono px-8  text-center text-slate-200 font-bold
                                 mobile:text-3xl 
                                 md:text-5xl">Nouvelle recette</h1>
+                                {submitted && (
+                                         <p className="text-green-500 md:text-4xl md:font-bold">Le formulaire a été soumis avec succès !</p>
+                                     )}
+                                     {errorMessage && (
+                                         <p className="text-red-500 md:text-4xl md:font-bold md:text-center">{errorMessage}</p>
+                                     )}
                 <div className="flex flex-col text-lg">
                     <input
                         className="bg-orange-100 rounded-md text-center
