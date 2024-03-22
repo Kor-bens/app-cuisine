@@ -20,8 +20,9 @@ import { updateUser } from '../../../userUtils';
 export default function NavBar() {
     const [showDropDown, setShowDropDown] = useState(false);
     const [showDropDownCuisine, setShowDropDownCuisine] = useState(false);
-    const [showRecetteFormulaire, setShowRecetteFormulaire] = useState(false);
-    const [showListeRecette, setShowListeRecette] = useState(false);
+    const [showRecetteFormulaire, setShowRecetteFormulaire] = useState(true);
+    const [showListeRecette, setShowListeRecette] = useState(true);
+    const [showNavigationMaCuisine, setShowNavigationMaCuisine] = useState(false);
     const [userName, setUserName] = useState("");
 
     const toggleDropDown = () => {
@@ -30,15 +31,32 @@ export default function NavBar() {
 
     const toggleDropDownCuisine = () => {
         setShowDropDownCuisine(!showDropDownCuisine);
+
     };
     
     const toggleRecetteFormulaire = () => {
         setShowRecetteFormulaire(!showRecetteFormulaire);
+        setShowListeRecette(false)
     };
 
     const toggleShowListRecette = () => {
         setShowListeRecette(!showListeRecette);
+        setShowRecetteFormulaire(false);
+
     };
+
+    const toggleShowNavigationMaCuisineListe = () => {
+        setShowNavigationMaCuisine(!showNavigationMaCuisine)
+        setShowListeRecette(!showListeRecette)
+        setShowRecetteFormulaire(false)
+
+    }
+
+    const toggleShowNavigationMaCuisineFormulaire = () => {
+        setShowNavigationMaCuisine(!showNavigationMaCuisine)
+        setShowRecetteFormulaire(!showRecetteFormulaire)
+        setShowListeRecette(false)
+    }
 
    const updateUser = (userName) => {
         setUserName(userName);
@@ -70,10 +88,12 @@ export default function NavBar() {
                                 ><Link to="/ma-cuisine">Ma cuisine</Link></button>
                                 {showDropDownCuisine && (
                                     <div onMouseLeave={toggleDropDownCuisine} className="flex flex-col absolute top-9 left-0 opacity-80 bg-zinc-800 border-zinc-800 py-2 rounded-md">
-                                        <button onClick={toggleRecetteFormulaire} className="md:text-2xl mobile:hidden">
-                                            <Link to="/ajout" className="md:text-2xl mobile:hidden">Ajouter une recette</Link></button>
-                                        <button onClick={toggleShowListRecette} className="md:text-2xl mobile:hidden">
-                                        <Link to="/mes-recettes" className="md:text-2xl mobile:hidden">Afficher mes recettes</Link></button>
+                                        <button onClick={toggleShowNavigationMaCuisineFormulaire} className="md:text-2xl mobile:hidden">
+                                            {/* <Link to="/ajout" className="md:text-2xl mobile:hidden">Ajouter une recette</Link> */}
+                                            Ajouter une recette</button>
+                                        <button onClick={toggleShowNavigationMaCuisineListe} className="md:text-2xl mobile:hidden">
+                                        {/* <Link to="/mes-recettes" className="md:text-2xl mobile:hidden">Afficher mes recettes</Link> */}
+                                        Afficher mes recettes</button>
                                     </div>
                                 )}
                             </div>
@@ -99,8 +119,20 @@ export default function NavBar() {
                     </ul>
                 </div>
             </nav>
-            {/* {showRecetteFormulaire && <RecetteFormulaire />}
-            {showListeRecette && <ListeRecettes />} */}
+            {showNavigationMaCuisine && (
+                <div className='grid grid-cols-5 gap-1 text-center h-full'>
+            <div className='col-span-0 border flex flex-col rounded-md'>
+        <div className="flex flex-col text-slate-50 font-bold">
+        <button onClick={toggleShowListRecette}>Afficher mes recettes</button>
+        <button onClick={toggleRecetteFormulaire}>Ajouter une recette</button>
+        </div>
+      </div>
+      {showListeRecette && <ListeRecettes />}
+      {showRecetteFormulaire && <RecetteFormulaire />}   
+            </div>
+            )}
+            
+           
         </>
     );
 }
