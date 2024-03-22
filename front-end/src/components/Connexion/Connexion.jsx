@@ -34,7 +34,7 @@ export default function Connexion() {
   
   useEffect(() => {
     if (redirectToDashboard) {
-      navigate("/dashboard");
+      navigate("/ma-cuisine");
     }
   }, [redirectToDashboard, navigate]);
 
