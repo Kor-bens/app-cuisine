@@ -27,15 +27,20 @@ export default function ListeRecettes() {
   return (
     <>
     
-<div className='col-span-1 cursor-pointer border rounded-md  h-full
-                '>
+<div className='col-span-1 cursor-pointer border rounded-md h-full
+               mobile:col-span-2 mobile:h-auto
+               md:h-auto
+               lg:h-auto'>
+  
+           
       {listeRecettes.map((recette, index) => (
         <div key={recette.id} className='border-solid border-2 border-gray-500 mb-2  hover:bg-stone-800 hover:opacity-80'
          onClick={() => handleRecetteClick(recette)}>
-          <h2 className='text-slate-50 font-bold'>Recette : {recette.title}</h2>
+          <h2 className='text-slate-50 font-bold'> {recette.title}</h2>
         </div>
       ))}
-    </div>
+               </div>
+    
 
 
   {selectedRecette && (

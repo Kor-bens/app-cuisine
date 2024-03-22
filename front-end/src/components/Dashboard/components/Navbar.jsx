@@ -8,6 +8,7 @@ import RecetteFormulaire from "../../AjoutRecette/RecetteFormulaire";
 import ListeRecettes from "../../ListeRecettes/ListeRecettes";
 import { updateUser } from '../../../userUtils';
 
+// TODO changer background : fond gris
 export default function NavBar() {
     const [showDropDown, setShowDropDown] = useState(false);
     const [showDropDownCuisine, setShowDropDownCuisine] = useState(false);

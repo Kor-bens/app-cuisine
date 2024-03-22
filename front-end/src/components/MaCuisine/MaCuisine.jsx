@@ -26,14 +26,13 @@ function MaCuisine() {
   // Afficher la liste de recettes par défaut
   return (
     <>
-      <div className='grid grid-cols-1 gap-1 text-center h-full
+      <div className='grid grid-cols-1 gap-1 text-center h-full 
                       mobile:grid-col-1 mobile:grid-rows-0'>
         <div className=' border flex flex-col rounded-md
                        mobile:flex-row mobile:justify-end mobile:row-16 mobile:border-none'>
-          <div className="flex flex-col text-slate-50 font-bold
-                         ">
+          <div className="flex flex-col text-slate-50 font-bold">
             {showButtonAfficher && (
-              <button onClick={toggleShowListRecette} className="mobile:border rounded-lg mobile:px-3 mobile:py-1">
+              <button onClick={toggleShowListRecette} className="mobile:border rounded-lg mobile:px-3 ">
                 Afficher mes recettes
               </button>
             )}
@@ -44,10 +43,15 @@ function MaCuisine() {
             )}
           </div>
         </div>
-        {showListeRecette && <ListeRecettes />}
+        
+        {showListeRecette && (
+          <div style={{ marginTop: '20px' }}>
+            <ListeRecettes/>
+          </div>
+        )}
         {showRecetteFormulaire && <RecetteFormulaire />}
       </div>
-            <NavBar />
+      <NavBar />
     </>
   );
 }
