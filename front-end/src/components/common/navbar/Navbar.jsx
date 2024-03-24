@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { FaSearch } from "react-icons/fa";
 import { BiHome } from "react-icons/bi";
-// import { AddIcon } from "./icons/AddIcon"
-// import { LogInIcon } from "./icons/LogInIcon"
-import { FaRegUser } from "react-icons/fa";
+import { HiHome } from "react-icons/hi";
+import { FaBookOpen } from "react-icons/fa6";
+import { FaRegUser, FaUser  } from "react-icons/fa";
+import { IoHomeSharp } from "react-icons/io5";
 
 export default function NavBar() {
   return (
@@ -13,50 +14,46 @@ export default function NavBar() {
     md:text-2xl"> 
     <div className="flex 
     md:mb-0 ">
-      <ul className="w-full items-center flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl h-28">
+      <ul className="w-full items-center flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl h-16">
         <li>
           <div className="flex flex-col items-center">
-            <Link to="/"><BiHome className=" 
-            mobile:h-5 mobile:w-5
+            <Link to="/"><IoHomeSharp className=" text-slate-700
+            mobile:h-10 mobile:w-7
             md:hidden" /></Link>
-            <Link to="/" className="md:text-3xl
+            <Link to="/" className="md:text-3xl text-slate-700
             mobile:hidden
             ">Accueil</Link>
           </div>
         </li>
         <li>
           <div className="flex flex-col items-center">
-            <MagnifyingGlassIcon className=" 
-            mobile:h-5 mobile:w-5
+            <FaSearch  className=" text-slate-700
+            mobile:h-10 mobile:w-7
             md:hidden" />
-            <Link to="" className="md:text-3xl
+            <Link to="" className="md:text-3xl text-slate-700
             mobile:hidden
             ">Explorer</Link>
           </div>
         </li>
-        {/* <li> */}
-          {/* <div className="flex flex-col item-center"> */}
-            {/* <AddIcon /> */}
-            {/* <Link to="/ajout" className="md:text-3xl">Ajouter</Link> 
-          </div>
-        </li>
-        <li className="hidden md:block ">
-          {" "} */}
-          {/* Cacher l'élément sur mobile */}
-        {/* </li> */}
-        {/* <li>
-          <div className="flex flex-col items-center"> */}
-            {/* <LogInIcon /> */}
-            {/* <Link to="" className="md:text-3xl">Se connecter</Link> */}
-          {/* </div>
-        </li> */}
         <li>
           <div className="flex flex-col items-center">
-            {/* <LogInIcon /> */}
-            <Link to="/connexion" className="
+          <Link to="" className="text-slate-700 md:text-3xl
             mobile:hidden
-            md:hidden">Mon compte</Link>
-            <Link to="/connexion" className=""><FaRegUser/></Link>
+            ">Ma cuisine</Link>
+            <Link to="" className=""><FaBookOpen className="text-slate-700
+            mobile:h-10 mobile:w-7
+             md:hidden"/></Link>
+          </div>
+        </li>
+        <li>
+          <div className="flex flex-col items-center">
+            <Link to="/connexion" className="text-slate-700 md:text-3xl
+            mobile:hidden
+            ">Mon compte</Link>
+            <Link to="/connexion" className="">
+              <FaUser className="text-slate-700
+               mobile:h-10 mobile:w-6
+               md:hidden"/></Link>
           </div>
         </li>
       </ul>
