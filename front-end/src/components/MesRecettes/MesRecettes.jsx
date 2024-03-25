@@ -3,6 +3,7 @@ import Header from "../Header"
 import ListeRecettes from "../ListeRecettes/ListeRecettes";
 import { useState } from "react";
 import RecetteFormulaire from "../AjoutRecette/RecetteFormulaire";
+import Categories from "./components/Categories";
 
 function MaCuisine() {
   const [showRecetteFormulaire, setShowRecetteFormulaire] = useState(false);
@@ -29,6 +30,7 @@ function MaCuisine() {
     <>
     <Header><p className=" italic
     mobile:absolute mobile:top-0 mobile:left-0 mobile:ml-4 mobile:mt-12 mobile:text-4xl " style={{ color: '#8B7979' }}>Mes recettes</p></Header>
+    <Categories ></Categories>
       {/* <div className='grid grid-cols-1 gap-1 text-center h-full 
                       mobile:grid-col-1 mobile:grid-rows-0'>
         <div className=' border flex flex-col rounded-md
