@@ -7,7 +7,7 @@ import AjoutRecette from "./components/AjoutRecette/AjoutRecette";
 import ListeRecettes from "./components/ListeRecettes/ListeRecettes";
 import FormulaireInscription from "./components/Inscription/Inscription";
 import Dashboard from "./components/Dashboard/Dashboard";
-import MaCuisine from "./components/MaCuisine/MaCuisine";
+import MaCuisine from "./components/MesRecettes/MesRecettes";
 //TODO ROUTE ACCESSIBLE SEULEMENT POUR LES CONNECTER : DASHBOARD, MA CUISINE
 //TODO DECONNEXION + TIMER DECONNEXION
 //TODO BOUTON "+" POUR L'AJOUT DE RECETTE
