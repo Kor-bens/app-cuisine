@@ -1,24 +1,17 @@
 import React from "react";
 import NavBar from "../common/navbar/Navbar";
 import './accueil.css'
+import Header from "../Header";
 
 function Accueil() {
   return (
-    <div>
+    <>
+    <Header><p className=" italic 
+    mobile:absolute mobile:top-0 mobile:left-0 mobile:ml-4 mobile:mt-12 mobile:text-4xl " style={{ color: '#8B7979' }}>CookBook</p></Header> 
+    
         <NavBar />
-      <h1 className="text-lime-300">Bienvenue sur la page d'accueil</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloremque repudiandae perferendis veniam, dolorum adipisci? Ex tempore obcaecati rerum, dolor culpa fugit? Quasi, quidem corrupti doloribus mollitia corporis illum praesentium!</p>
-    </div>
+      <h1 className="text-gray-700" style={{ color: '#8B7979' }}>Home</h1>
+    </>
   );
 }
 
