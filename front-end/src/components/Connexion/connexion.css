@@ -1,7 +1,7 @@
 body{
     display:flex;
     flex-direction:column;
-    background-image: url('../../assets/background/bg-connexion-inscription.jpg');
+    /* background-image: url('../../assets/background/bg-connexion-inscription.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

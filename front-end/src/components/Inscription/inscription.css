@@ -1,7 +1,7 @@
 body{
   display:flex;
   flex-direction:column;
-  background-image: url('../../assets/background/bg-legumes.jpg');
+  /* background-image: url('../../assets/background/bg-legumes.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
