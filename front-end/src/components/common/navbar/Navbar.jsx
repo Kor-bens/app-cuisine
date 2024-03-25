@@ -14,10 +14,10 @@ export default function NavBar() {
     md:text-2xl"> 
     <div className="flex 
     md:mb-0 ">
-      <ul className="w-full items-center flex place-content-evenly border-2 border-zinc-800 text-zinc-50 font-bold rounded-xl h-16">
+      <ul className="w-full items-center flex place-content-evenly text-zinc-50 font-bold h-16 bg-gray-200">
         <li>
           <div className="flex flex-col items-center">
-            <Link to="/"><IoHomeSharp className=" text-slate-700
+            <Link to="/"><IoHomeSharp className=" text-gray-500
             mobile:h-10 mobile:w-7
             md:hidden" /></Link>
             <Link to="/" className="md:text-3xl text-slate-700
@@ -27,7 +27,7 @@ export default function NavBar() {
         </li>
         <li>
           <div className="flex flex-col items-center">
-            <FaSearch  className=" text-slate-700
+            <FaSearch  className=" text-gray-500
             mobile:h-10 mobile:w-7
             md:hidden" />
             <Link to="" className="md:text-3xl text-slate-700
@@ -37,21 +37,21 @@ export default function NavBar() {
         </li>
         <li>
           <div className="flex flex-col items-center">
-          <Link to="" className="text-slate-700 md:text-3xl
+          <Link to="" className="text-slate-500 md:text-3xl
             mobile:hidden
             ">Ma cuisine</Link>
-            <Link to="" className=""><FaBookOpen className="text-slate-700
+            <Link to="" className=""><FaBookOpen className="text-gray-500
             mobile:h-10 mobile:w-7
              md:hidden"/></Link>
           </div>
         </li>
         <li>
           <div className="flex flex-col items-center">
-            <Link to="/connexion" className="text-slate-700 md:text-3xl
+            <Link to="/connexion" className="text-slate-500 md:text-3xl
             mobile:hidden
             ">Mon compte</Link>
             <Link to="/connexion" className="">
-              <FaUser className="text-slate-700
+              <FaUser className="text-gray-500
                mobile:h-10 mobile:w-6
                md:hidden"/></Link>
           </div>
