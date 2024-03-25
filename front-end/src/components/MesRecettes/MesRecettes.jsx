@@ -5,7 +5,7 @@ import { useState } from "react";
 import RecetteFormulaire from "../AjoutRecette/RecetteFormulaire";
 import Categories from "./components/Categories";
 
-function MaCuisine() {
+function MesRecettes() {
   const [showRecetteFormulaire, setShowRecetteFormulaire] = useState(false);
   const [showListeRecette, setShowListeRecette] = useState(true);
   const [showButtonAfficher, setShowButtonAfficher] = useState(false);
@@ -61,4 +61,4 @@ function MaCuisine() {
   );
 }
 
-export default MaCuisine;
+export default MesRecettes;
