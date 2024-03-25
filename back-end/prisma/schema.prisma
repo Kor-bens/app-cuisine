@@ -15,7 +15,7 @@ model User {
   nom String 
   prenom String 
   email String @unique
-  motDePasse String 
+  motDePasse String
   recettes Recette[]
 }
 
@@ -27,6 +27,8 @@ model Recette {
   instructions Instruction[]
   utilisateur User @relation(fields: [userId], references: [id])
   userId Int
+  sousCategorie SousCategorie @relation(fields: [sousCategorieId], references: [id])
+  sousCategorieId Int
 }
 
 model Ingredient {
@@ -42,4 +44,18 @@ model Instruction {
   etape String
   recette Recette @relation(fields: [recetteId], references: [id])
   recetteId Int
+}
+
+model Categorie {
+  id Int @id @default(autoincrement())
+  nom String
+  sousCategories SousCategorie[]
+}
+
+model SousCategorie {
+  id Int @id @default(autoincrement())
+  nom String
+  categorie Categorie @relation(fields: [categorieId], references: [id])
+  categorieId Int
+  recettes Recette[]
 }

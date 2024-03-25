@@ -7,7 +7,7 @@ export class RecetteService {
     constructor(private readonly prisma: PrismaService) {}
 
     async createRecette(recetteDto: RecetteDto) {
-        const { title, description, userId, ingredients, instructions } = recetteDto;
+        const { title, description, userId, ingredients, instructions, sousCategorieId } = recetteDto;
 
         // Créer une recette
         const recette = await this.prisma.recette.create({
@@ -21,11 +21,15 @@ export class RecetteService {
                 instructions: {
                     create: instructions.map(instruction => ({ etape: instruction.etape }))
                 },
+                sousCategorie: { connect: { id: sousCategorieId } },
                 // utilisateur: {connect: { id: recetteDto.}}
+                //TODOtest postman
+                //TODO DEFINIR CATEGORIE ET SOUS CATEGORIE DEPUIS MYSQL
             },
             include: {
                 ingredients: true,
-                instructions: true
+                instructions: true,
+                sousCategorie: true,
             }
         });
 
