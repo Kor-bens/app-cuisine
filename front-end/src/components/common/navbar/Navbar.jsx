@@ -37,10 +37,10 @@ export default function NavBar() {
         </li>
         <li>
           <div className="flex flex-col items-center">
-          <Link to="" className="text-slate-500 md:text-3xl
+          <Link to="/mes-recettes-categories" className="text-slate-500 md:text-3xl
             mobile:hidden
-            ">Ma cuisine</Link>
-            <Link to="" className=""><FaBookOpen className="text-gray-500
+            ">Mes recettes</Link>
+            <Link to="/mes-recettes" className=""><FaBookOpen className="text-gray-500
             mobile:h-10 mobile:w-7
              md:hidden"/></Link>
           </div>
