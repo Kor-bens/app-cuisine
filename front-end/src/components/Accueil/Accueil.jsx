@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../common/navbar/Navbar";
 import './accueil.css'
 import Header from "../Header";
-
+//TODO AFFICHER LES POSTS DES USERS ?? DERNIERE PUBLICATION ??
 function Accueil() {
   return (
     <>
