@@ -7,7 +7,7 @@ export interface RecetteDto {
   userId: number;
   ingredients: IngredientDto[];
   instructions: InstructionDto[];
-  sousCategorieId: number;
+  categorieId: number
   }
   
   
