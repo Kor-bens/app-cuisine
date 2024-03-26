@@ -27,6 +27,11 @@ export class RecetteController {
         return recette;
     }
 
+    @Get(':userId')
+    async getRecetteByUser(@Param('userId') userId: number) {
+      return this.recetteService.getRecetteByUserId(userId)
+    }
+
     @Delete(':id')
     async deleteRecetteById(@Param('id') id: string) {
         const recette = await this.recetteService.deleteRecetteById(id);
