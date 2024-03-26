@@ -47,6 +47,14 @@ export class RecetteService {
         });
       }
 
+    async getRecetteByUserId(userId: number){
+        return this.prisma.recette.findMany({
+            where: {
+               userId: userId, 
+            }
+        })
+    }
+
     async getRecetteById(id: string) {
         const recetteId = parseInt(id, 10); 
         const recette = await this.prisma.recette.findUnique({
