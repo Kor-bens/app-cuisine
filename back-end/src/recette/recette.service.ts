@@ -47,12 +47,15 @@ export class RecetteService {
         });
       }
 
-    async getRecetteByUserId(userId: number){
-        return this.prisma.recette.findMany({
+      async getRecetteByUserId(userId: string) {
+        const parsedUserId = parseInt(userId, 10);
+       const recettesByUser = this.prisma.recette.findMany({
             where: {
-               userId: userId, 
-            }
-        })
+                userId: parsedUserId
+            },
+            
+        });
+        return recettesByUser
     }
 
     async getRecetteById(id: string) {
