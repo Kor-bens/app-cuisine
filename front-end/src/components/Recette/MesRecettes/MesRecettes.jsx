@@ -1,5 +1,5 @@
-import NavBar from "../common/navbar/Navbar";
-import Header from "../Header"
+import NavBar from "../../common/navbar/Navbar";
+import Header from "../../Header";
 import ListeRecettes from "../ListeRecettes/ListeRecettes";
 import { useState } from "react";
 import RecetteFormulaire from "../AjoutRecette/RecetteFormulaire";
@@ -17,7 +17,7 @@ function MesRecettes() {
     setShowButtonAfficher(true);
     setShowButtonAjouter(false);
   };
-  
+
   const toggleShowListRecette = () => {
     setShowListeRecette(!showListeRecette);
     setShowRecetteFormulaire(false);
@@ -28,9 +28,16 @@ function MesRecettes() {
   // Afficher la liste de recettes par défaut
   return (
     <>
-    <Header><p className=" italic
-    mobile:absolute mobile:top-0 mobile:left-0 mobile:ml-4 mobile:mt-12 mobile:text-4xl " style={{ color: '#8B7979' }}>Mes recettes</p></Header>
-    <Categories ></Categories>
+      <Header>
+        <p
+          className=" italic
+    mobile:absolute mobile:top-0 mobile:left-0 mobile:ml-4 mobile:mt-12 mobile:text-4xl "
+          style={{ color: "#8B7979" }}
+        >
+          Mes recettes
+        </p>
+      </Header>
+      <Categories></Categories>
       {/* <div className='grid grid-cols-1 gap-1 text-center h-full 
                       mobile:grid-col-1 mobile:grid-rows-0'>
         <div className=' border flex flex-col rounded-md

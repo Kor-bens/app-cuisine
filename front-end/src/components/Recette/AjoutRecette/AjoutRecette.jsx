@@ -1,4 +1,4 @@
-import NavBar from "../common/navbar/Navbar";
+import NavBar from "../../common/navbar/Navbar";
 import RecetteFormulaire from "./RecetteFormulaire";
 
 

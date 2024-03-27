@@ -51,7 +51,7 @@ export default function RecetteFormulaire() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try { 
-            const response = await axios.post("http://localhost:3003/recettes", {
+            const response = await axios.post("http://localhost:3004/recettes", {
                 title: formData.title,
                 description: formData.description,
                 ingredients: formData.ingredients,

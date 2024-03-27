@@ -34,7 +34,7 @@ export default function Connexion() {
   
   useEffect(() => {
     if (redirectToDashboard) {
-      navigate("/ma-cuisine");
+      navigate("/mes-recettes");
     }
   }, [redirectToDashboard, navigate]);
 
@@ -44,7 +44,7 @@ export default function Connexion() {
     let response;
 
     try {
-      response = await axios.post("http://localhost:3003/users/connexion", {
+      response = await axios.post("http://localhost:3004/users/connexion", {
         nomOrEmail: formData.nomOrEmail,
         motDePasse: formData.motDePasse,
       });
