@@ -27,9 +27,9 @@ export class RecetteController {
         return recette;
     }
 
-    @Get(':userId')
-    async getRecetteByUser(@Param('userId') userId: number) {
-      return this.recetteService.getRecetteByUserId(userId)
+    @Get('user/:userId')
+    async getRecetteByUser(@Param('userId') userId: string) {
+      return this.recetteService.getRecetteByUserId(userId) 
     }
 
     @Delete(':id')
