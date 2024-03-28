@@ -20,13 +20,8 @@ export class UserController {
   @Post('connexion')
   async connectUser(@Body() loginUserDto: LoginUserDto) {
     try {
-      const { token, userName } =
-        await this.userService.connectUser(loginUserDto);
-      if (!token) {
-        throw new Error('Identifiant incorrect.');
-      }
-
-      return { successMessage: 'Connexion réussie!', token, userName };
+      const result = await this.userService.connectUser(loginUserDto);
+      return result;
     } catch (error) {
       return { message: error.message }; // Retourner le message d'erreur
     }

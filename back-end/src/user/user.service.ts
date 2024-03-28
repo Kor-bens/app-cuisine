@@ -44,21 +44,21 @@ export class UserService {
     });
 
     if (!user) {
-      return null; // Aucun utilisateur trouvé
+      throw new Error("Identifiant incorrect.");
     }
 
     // Vérifier le mot de passe
     const isPasswordValid = await bcrypt.compare(motDePasse, user.motDePasse);
 
     if (!isPasswordValid) {
-      return null; // Mot de passe incorrect
+      throw new Error("Mot de passe incorrect.");
     }
     const token = jwt.sign({ userId: user.id }, tokenEncrypte, {
         algorithm: 'HS256',
         expiresIn: '30min',
     });
 
-    return { token, userName: user.nom }; // Retourne le jeton d'authentification et le nom
-    // return user; // Retourner l'utilisateur s'il est trouvé et que le mot de passe est valide
+    return {successMessage: 'Connexion réussie!', token, userName: user.nom, userId: user.id }; // Retourne le jeton d'authentification et le nom
+
   }
 }
