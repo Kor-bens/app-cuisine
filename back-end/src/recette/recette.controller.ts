@@ -1,4 +1,4 @@
-import { Post, Controller, Body, Get, NotFoundException, Param, Delete, Put, } from '@nestjs/common';
+import { Post, Controller, Body, Get, NotFoundException, Param, Delete, Put, Request  } from '@nestjs/common';
 import { RecetteService } from './recette.service';
 import { RecetteDto } from './dto/recette.dto';
 import { UserDto } from './dto/user.dto';
@@ -13,24 +13,34 @@ export class RecetteController {
         return this.recetteService.createRecette(recetteDto);
     }
 
-    @Get()
-    async getRecette() {
-        return this.recetteService.findAll();
+    // @Get()
+    // async getRecette() {
+    //     return this.recetteService.findAll();
+    // }
+
+    // @Get(':id')
+    // async getRecetteById(@Param('id') id: string) {
+    //     const recette = await this.recetteService.getRecetteById(id);
+    //     if (!recette) {
+    //         throw new NotFoundException(`Recette avec l'ID ${id} introuvable.`);
+    //     }
+    //     return recette;
+    // }
+
+    @Get('user')
+    async getRecettesByLoggedInUser(@Request() req) {
+      const userId = req.user?.userId; // Obtenir l'identifiant de l'utilisateur connecté à partir du req objet
+      if (userId) {
+        return this.recetteService.getRecetteByUserId(userId);
+      } else {
+        return { message: 'Utilisateur non authentifié.' };
+      }
     }
 
-    @Get(':id')
-    async getRecetteById(@Param('id') id: string) {
-        const recette = await this.recetteService.getRecetteById(id);
-        if (!recette) {
-            throw new NotFoundException(`Recette avec l'ID ${id} introuvable.`);
-        }
-        return recette;
-    }
-
-    @Get('user/:userId')
-    async getRecetteByUser(@Param('userId') userId: string) {
-      return this.recetteService.getRecetteByUserId(userId) 
-    }
+    // @Get('user/:userId')
+    // async getRecetteByUser(@Param('userId') userId: string) {
+    //   return this.recetteService.getRecetteByUserId(userId) 
+    // }
 
     @Delete(':id')
     async deleteRecetteById(@Param('id') id: string) {
