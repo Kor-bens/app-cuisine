@@ -29,3 +29,5 @@ export class AppModule implements NestModule {
     consumer.apply(AuthMiddleware).forRoutes('*'); // Appliquer le middleware à toutes les routes
   }
 }
+
+//RESOUDRE URGEMMENT LE PROBLEME DE JWT : userService et controller + recetteController et service + middleware auth
