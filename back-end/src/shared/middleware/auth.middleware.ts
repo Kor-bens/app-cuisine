@@ -19,3 +19,22 @@ export class AuthMiddleware implements NestMiddleware {
     next();
   }
 }
+
+// @Injectable()
+// export class AuthMiddleware implements NestMiddleware {
+//   use(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+//     const token = req.headers.authorization?.split(' ')[1];
+//     if (token) {
+//       try {
+//         const decodedToken = jwt.verify(token, process.env.JWT_SECRET) as UserDto;
+//         req.user = decodedToken; // Ajouter les informations de l'utilisateur au req objet
+//         next();
+//       } catch (error) {
+//         // Gérer les erreurs de token JWT
+//         return res.status(401).json({ message: 'Token invalide' });
+//       }
+//     } else {
+//       return res.status(401).json({ message: 'Token manquant' });
+//     }
+//   }
+// }

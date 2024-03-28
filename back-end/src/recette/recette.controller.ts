@@ -1,4 +1,4 @@
-import { Post, Controller, Body, Get, NotFoundException, Param, Delete, Put, Request  } from '@nestjs/common';
+import { Post, Controller, Body, Get, NotFoundException, Param, Delete, Put, Request, UseGuards  } from '@nestjs/common';
 import { RecetteService } from './recette.service';
 import { RecetteDto } from './dto/recette.dto';
 import { UserDto } from './dto/user.dto';
@@ -27,7 +27,9 @@ export class RecetteController {
     //     return recette;
     // }
 
+    //TODO Récuperation des recettes de l'user 
     @Get('user')
+    // @UseGuards(AuthGuard)
     async getRecettesByLoggedInUser(@Request() req) {
       const userId = req.user?.userId; // Obtenir l'identifiant de l'utilisateur connecté à partir du req objet
       if (userId) {
