@@ -30,8 +30,7 @@ function MesRecettes() {
     <>
       <Header>
         <p
-          className=" italic
-    mobile:absolute mobile:top-0 mobile:left-0 mobile:ml-4 mobile:mt-12 mobile:text-4xl "
+          className=" italic absolute top-0 left-0 ml-4 mt-12 text-4xl"
           style={{ color: "#8B7979" }}
         >
           Mes recettes
@@ -63,7 +62,8 @@ function MesRecettes() {
         )}
         {showRecetteFormulaire && <RecetteFormulaire />}
       </div> */}
-      <NavBar />
+            <NavBar />
+
     </>
   );
 }

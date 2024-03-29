@@ -11,7 +11,8 @@ export default function NavBar() {
   return (
     <nav className="  border-t shadow-md 
     mobile:fixed mobile:bottom-0 mobile:left-0 mobile:w-full
-    md:text-2xl"> 
+    md:text-2xl sm:fixed sm:bottom-0 sm:left-0 sm:w-full
+     "> 
     <div className="flex 
     md:mb-0 ">
       <ul className="w-full items-center flex place-content-evenly text-zinc-50 font-bold h-16 bg-gray-200">
@@ -61,3 +62,4 @@ export default function NavBar() {
     </nav>
   );
 }
+//TODO REGLER AFFICHAGE POUR GRAND ECRAN
