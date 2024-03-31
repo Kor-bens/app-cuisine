@@ -4,8 +4,7 @@ import { CreateUserDto } from './dto/user.dto';
 import * as bcrypt from 'bcrypt';
 import { LoginUserDto } from './dto/loginUser.dto';
 import * as jwt from 'jsonwebtoken';
-export const crypto = require('crypto');
-export const tokenEncrypte = crypto.randomBytes(32).toString('hex');
+import { tokenEncrypte } from 'src/shared/utils';
 
 @Injectable()
 export class UserService {
@@ -37,8 +36,8 @@ export class UserService {
 
   async connectUser(loginUserDto: LoginUserDto) {
     const { nomOrEmail, motDePasse } = loginUserDto;
-    const crypto = require('crypto');
-    const tokenEncrypte = crypto.randomBytes(32).toString('hex');
+    // const crypto = require('crypto');
+    // const tokenEncrypte = crypto.randomBytes(32).toString('hex');
     // Vérifier si l'identifiant de l'utilisateur est un email ou un nom d'utilisateur
     const user = await this.prisma.user.findFirst({
       where: {
@@ -61,7 +60,9 @@ export class UserService {
         expiresIn: '30min',
     });
 
-    return {successMessage: 'Connexion réussie!', token, userName: user.nom, userId: user.id }; // Retourne le jeton d'authentification et le nom
+    return {successMessage: 'Connexion réussie!', token, userName: user.nom, userId: user.id, tokenEncrypte }; // Retourne le jeton d'authentification et le nom
 
   }
+  
 }
+
