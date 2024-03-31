@@ -4,6 +4,9 @@ import { CreateUserDto } from './dto/user.dto';
 import * as bcrypt from 'bcrypt';
 import { LoginUserDto } from './dto/loginUser.dto';
 import * as jwt from 'jsonwebtoken';
+export const crypto = require('crypto');
+export const tokenEncrypte = crypto.randomBytes(32).toString('hex');
+
 @Injectable()
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
