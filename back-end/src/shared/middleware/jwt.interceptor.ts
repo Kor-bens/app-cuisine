@@ -1,8 +1,7 @@
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler, Logger, BadRequestException } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import * as jwt from 'jsonwebtoken';
-import { tokenEncrypte } from 'src/user/user.service';
-
+import { tokenEncrypte } from '../utils';
 @Injectable()
 export class JwtInterceptor implements NestInterceptor {
     private readonly logger = new Logger(JwtInterceptor.name);
@@ -18,7 +17,8 @@ export class JwtInterceptor implements NestInterceptor {
                 request.user = decodedToken;
                 this.logger.debug(`User authenticated: ${JSON.stringify(decodedToken)}`);
             } catch (error) {
-                this.logger.error(`JWT verification failed: ${error.message} + token: ${token}`);
+                this.logger.error(`JWT verification failed: ${error.message} + token: ${JSON.stringify(token)}`);
+                this.logger.error(`JWT verification failed: ${error.message} + tokenEncrypte: ${JSON.stringify(tokenEncrypte)}`);
                 throw new BadRequestException('Token JWT invalide');
             }
         }
