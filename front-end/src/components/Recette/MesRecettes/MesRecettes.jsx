@@ -37,7 +37,7 @@ function MesRecettes() {
         </p>
       </Header>
       <Categories></Categories>
-      {/* <div className='grid grid-cols-1 gap-1 text-center h-full 
+      <div className='grid grid-cols-1 gap-1 text-center h-full 
                       mobile:grid-col-1 mobile:grid-rows-0'>
         <div className=' border flex flex-col rounded-md
                        mobile:flex-row mobile:justify-end mobile:row-16 mobile:border-none'>
@@ -61,7 +61,7 @@ function MesRecettes() {
           </div>
         )}
         {showRecetteFormulaire && <RecetteFormulaire />}
-      </div> */}
+      </div>
             <NavBar />
 
     </>
