@@ -75,7 +75,7 @@ export default function RecetteFormulaire() {
        
 
         <form onSubmit={handleSubmit} className=" col-span-2 cursor-pointer border rounded-md w-5/5 mt-96 
-         mobile:w-5/5 mobile:mx-auto mobile:items-center mobile:w-full mobile:px-8 mobile:mt-16 mobile:border-none
+         mobile:w-5/5 mobile:mx-auto mobile:items-center mobile:w-full mobile:px-8 mobile:mt-0 mobile:border-none
          md:text-center md:w-5/5 md:mt-16
          lg:w-12/12 lg:mx-auto lg:mt-0">
             <div className="flex flex-col w-5/5 px-8 
@@ -85,7 +85,8 @@ export default function RecetteFormulaire() {
          ">
                  <h1 className="font-mono px-8  text-center text-slate-200 font-bold
                                 mobile:text-3xl 
-                                md:text-5xl">Nouvelle recette</h1>
+                                md:text-5xl"
+                                style={{ color: "#8B7979" }}>Nouvelle recette</h1>
                                 {submitted && (
                                          <p className="text-green-500 md:text-4xl md:font-bold">Le formulaire a été soumis avec succès !</p>
                                      )}
@@ -94,9 +95,9 @@ export default function RecetteFormulaire() {
                                      )}
                 <div className="flex flex-col text-lg">
                     <input
-                        className="bg-orange-100 rounded-md text-center
+                        className="bg-gray-200 rounded-md text-center
                          mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
-                          md:w-full  md:text-2xl md:h-12 md:pl-14 md:pr-14"
+                          md:w-full  md:text-2xl md:h-12 md:pl-14 md:pr-14" style={{ color: "#8B7979" }}
                         type="text"
                         id="title"
                         name="title"
@@ -113,9 +114,9 @@ export default function RecetteFormulaire() {
 
                 <div className="flex flex-col text-lg">
                     <textarea
-                        className="bg-orange-100 rounded-md text-center
+                        className="bg-gray-200 rounded-md text-center
                         mobile:w-full mobile:mb-4 mobile:mt-6 mobile:h-8 mobile:pl-14 mobile:pr-14
-                         md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12"
+                         md:w-full md:mb-4 md:mt-6 md:text-2xl md:h-12" style={{ color: "#8B7979" }}
                         id="description"
                         name="description"
                         placeholder="Description"
@@ -127,9 +128,9 @@ export default function RecetteFormulaire() {
                     {formData.ingredients.map((ingredient, index) => (
                         <div key={index} className="flex ">
                             <input
-                                className="bg-orange-100 rounded-md text-center
+                                className="bg-gray-200 rounded-md text-center
                                 mobile:w-full  mobile:h-8 
-                                 md:w-full md:text-2xl md:h-12"
+                                 md:w-full md:text-2xl md:h-12" style={{ color: "#8B7979" }}
                                 type="text"
                                 placeholder="Quantité"
                                 name="quantite"
@@ -137,9 +138,9 @@ export default function RecetteFormulaire() {
                                 onChange={(e) => handleInputChange(e, index, "ingredients")}
                             />
                             <input
-                                className="bg-orange-100 rounded-md text-center
+                                className="bg-gray-200 rounded-md text-center
                                 mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
-                                 md:w-full md:text-2xl md:h-12"
+                                 md:w-full md:text-2xl md:h-12" style={{ color: "#8B7979" }}
                                 type="text"
                                 placeholder="Nom"
                                 name="nom"
@@ -168,9 +169,9 @@ export default function RecetteFormulaire() {
                     {formData.instructions.map((instruction, index) => (
                         <div key={index} className="flex">
                             <input
-                                className="bg-orange-100 rounded-md text-center
+                                className="bg-gray-200 rounded-md text-center
                                 mobile:w-full  mobile:h-8 mobile:pl-14 mobile:pr-14
-                                 md:w-full md:text-2xl md:h-12 md:pl-36 md:pr-36"
+                                 md:w-full md:text-2xl md:h-12 md:pl-36 md:pr-36" style={{ color: "#8B7979" }}
                                 type="text"
                                 placeholder="Étape"
                                 name="etape"
@@ -196,8 +197,8 @@ export default function RecetteFormulaire() {
                    
                 </div>
                 <button
-                    className="border-2 rounded-lg px-2 py-2 text-white bg-orange-500 text-base hover:bg-orange-700
-                    lg:w-5/12 lg:mx-auto lg:mt-4"
+                    className="border-2 rounded-lg px-2 py-2 text-white bg-gray-500 text-base hover:bg-gray-900
+                    lg:w-5/12 lg:mx-auto lg:mt-4" 
                     type="submit"
                 >
                     Créer la recette
