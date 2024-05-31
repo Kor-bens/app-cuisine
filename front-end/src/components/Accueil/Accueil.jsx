@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../common/navbar/Navbar";
 import './accueil.css'
 import Header from "../Header";
+import ListeRecettes from "../Recette/ListeRecettes/ListeRecettes";
 //TODO AFFICHER LES POSTS DES USERS ?? DERNIERE PUBLICATION ??
 function Accueil() {
   return (
@@ -11,6 +12,7 @@ function Accueil() {
     
         <NavBar />
       <h1 className="text-gray-700" style={{ color: '#8B7979' }}>Home</h1>
+      <ListeRecettes />
     </>
   );
 }

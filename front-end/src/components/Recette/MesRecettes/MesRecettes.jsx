@@ -4,6 +4,8 @@ import ListeRecettes from "../ListeRecettes/ListeRecettes";
 import { useState } from "react";
 import RecetteFormulaire from "../AjoutRecette/RecetteFormulaire";
 import Categories from "./components/Categories";
+import RecetteByUser from "../ListeRecetteByUser/ListeRecetteByUser";
+import ListeRecetteByUser from "../ListeRecetteByUser/ListeRecetteByUser";
 
 function MesRecettes() {
   const [showRecetteFormulaire, setShowRecetteFormulaire] = useState(false);
@@ -39,25 +41,34 @@ function MesRecettes() {
       <Categories></Categories>
       <div className='grid grid-cols-1 gap-1 text-center h-full 
                       mobile:grid-col-1 mobile:grid-rows-0'>
-        <div className=' border flex flex-col rounded-md
+        <div className=' border flex flex-col rounded-md 
                        mobile:flex-row mobile:justify-end mobile:row-16 mobile:border-none'>
-          <div className="flex flex-col text-slate-50 font-bold">
+          <div className="flex flex-col text-slate-50 font-bold ">
             {showButtonAfficher && (
-              <button onClick={toggleShowListRecette} className="mobile:border rounded-lg mobile:px-3 ">
+              <button onClick={toggleShowListRecette} className="bg-gray-200 italic 
+              mobile:border rounded-lg mobile:px-3 "
+              style={{ color: "#8B7979" }}>
                 Afficher mes recettes
               </button>
             )}
             {showButtonAjouter && (
-              <button onClick={toggleRecetteFormulaire} className="mobile:border rounded-lg mobile:px-3 ">
+              <button onClick={toggleRecetteFormulaire} className="bg-gray-200 italic
+              mobile:border rounded-lg mobile:px-3 "
+              style={{ color: "#8B7979" }}>
                 Ajouter une recette
               </button>
             )}
           </div>
         </div>
         
+        {/* {showListeRecette && (
+          <div style={{ marginTop: '20px' }}>
+            {<ListeRecettes />}
+          </div>
+        )} */}
         {showListeRecette && (
           <div style={{ marginTop: '20px' }}>
-            <ListeRecettes/>
+            {<ListeRecetteByUser />}
           </div>
         )}
         {showRecetteFormulaire && <RecetteFormulaire />}

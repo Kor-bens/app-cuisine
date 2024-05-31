@@ -13,10 +13,10 @@ export class RecetteController {
         return this.recetteService.createRecette(recetteDto);
     }
 
-    // @Get()
-    // async getRecette() {
-    //     return this.recetteService.findAll();
-    // }
+    @Get()
+    async getRecette() {
+        return this.recetteService.findAll();
+    }
 
     // @Get(':id')
     // async getRecetteById(@Param('id') id: string) {
@@ -39,10 +39,10 @@ export class RecetteController {
       }
     }
 
-    // @Get('user/:userId')
-    // async getRecetteByUser(@Param('userId') userId: string) {
-    //   return this.recetteService.getRecetteByUserId(userId) 
-    // }
+    @Get('user/:userId')
+    async getRecetteByUser(@Param('userId') userId: string) {
+      return this.recetteService.getRecetteByUserId(userId) 
+    }
 
     @Delete(':id')
     async deleteRecetteById(@Param('id') id: string) {
