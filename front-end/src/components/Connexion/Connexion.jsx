@@ -113,7 +113,7 @@ export default function Connexion() {
           "
       >
         <h1
-          className="px-8 text-center text-slate-200 mb-6 font-bold 
+          className="px-8 text-center text-slate-500 mb-6 font-bold 
         mobile:text-3xl 
         md:text-5xl"
         >
@@ -190,7 +190,7 @@ export default function Connexion() {
           Se connecter
         </button>
 
-        <p className="text-slate-200 font-bold mobile:px-12 text-center">
+        <p className="text-slate-500 font-bold mobile:px-12 text-center">
           Vous n'avez pas de compte ? 
           <Link to="/inscription" className=" underline decoration-1 hover:text-slate-300">Inscrivez-vous</Link> </p>
               </form>
