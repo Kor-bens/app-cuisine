@@ -118,7 +118,7 @@ function FormulaireInscription() {
         lg:h-full lg:w-6/12 lg:mx-auto"
       >
         <h1
-          className="px-8 text-center text-slate-200 mb-6 font-bold 
+          className="px-8 text-center text-slate-500 mb-6 font-bold 
         mobile:text-3xl 
         md:text-5xl"
         >
@@ -210,7 +210,7 @@ function FormulaireInscription() {
           </div>
         </div>
           <button
-            className="text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500 hover:bg-orange-700 
+            className="w-4/12 mx-auto text-slate-200 text-center font-bold rounded-md mt-5 px-8 bg-orange-500 hover:bg-orange-700 
              mobile:w-5/12 mobile:h-8 
              md:text-2xl md:h-12 md:mb-3
              "
@@ -218,7 +218,7 @@ function FormulaireInscription() {
           >
             S'inscrire
           </button>
-        <p className="text-slate-200 font-bold mobile:px-12 text-center">
+        <p className="text-slate-500 font-bold mobile:px-12 text-center">
           Vous avez un compte ?   
            <Link to="/connexion" className=" underline decoration-1 hover:text-slate-300"> Connectez-vous</Link> </p>
       </form>
