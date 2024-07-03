@@ -21,7 +21,6 @@ export class RecetteService {
                 instructions: {
                     create: instructions.map(instruction => ({ etape: instruction.etape }))
                 },
-                //TODO L'id de la catégorie ne s'ajoute pas en db dans la table recette
                 categorieId, 
             },
             include: {
