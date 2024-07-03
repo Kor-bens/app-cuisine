@@ -37,6 +37,18 @@ export class RecetteService {
         return this.prisma.recette.findMany();
     }
 
+    async getRecetteByCategorie(){
+        return this.prisma.recette.findMany({
+            include: {
+            categorie : {
+                select : {
+                    nom: true
+                }
+            }
+            }
+        })
+    }
+
     async findAll(){
         return this.prisma.recette.findMany({
           include: {

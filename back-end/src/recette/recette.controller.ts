@@ -13,6 +13,11 @@ export class RecetteController {
         return this.recetteService.createRecette(recetteDto);
     }
 
+    @Get('categorie')
+    async getRecetteByCategorie() {
+      return this.recetteService.getRecetteByCategorie();
+    }
+
     @Get()
     async getRecette() {
         return this.recetteService.findAll();
