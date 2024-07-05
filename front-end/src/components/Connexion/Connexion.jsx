@@ -6,9 +6,9 @@ import axios from "axios";
 import "./connexion.css";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
-import { updateUser } from '../../userUtils';
+// import { updateUser } from '../../userUtils';
 
-export default function Connexion() {
+export default function Connexion({ setUserName, setIsAuthenticated }) {
   
   const [formData, setFormData] = useState({
     nomOrEmail: "",
@@ -18,6 +18,7 @@ export default function Connexion() {
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [redirectToDashboard, setRedirectToDashboard] = useState(false);
+  // const [userName, setUserName] = useState(""); 
   const navigate = useNavigate();
 
   const toggleShowPassword = () => {
@@ -76,7 +77,10 @@ export default function Connexion() {
         console.log("Token enregistré :", response.data.token);
         console.log("Réponse complète du serveur :", response);
         setRedirectToDashboard(true);
-        updateUser(response.data.userName, setUserName);
+        // updateUser(response.data.userName, setUserName); 
+        setUserName(response.data.userName);
+        setIsAuthenticated(true);
+        setRedirectToDashboard(true);
       }
 
       // Si toutes les vérifications passent, envoyer le formulaire...
@@ -117,7 +121,7 @@ export default function Connexion() {
         mobile:text-3xl 
         md:text-5xl"
         >
-          Connexion
+          Connexion 
         </h1>
         {errorMessage && (
           <p
