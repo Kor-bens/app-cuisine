@@ -6,6 +6,7 @@ import { HiHome } from "react-icons/hi";
 import { FaBookOpen } from "react-icons/fa6";
 import { FaRegUser, FaUser  } from "react-icons/fa";
 import { IoHomeSharp } from "react-icons/io5";
+import { TbLogout } from "react-icons/tb";
 
 export default function NavBar() {
   return (
@@ -55,6 +56,18 @@ export default function NavBar() {
               <FaUser className="text-gray-500
                mobile:h-10 mobile:w-6
                md:hidden"/></Link>
+          </div>
+        </li>
+        <li>
+          <div className="flex flex-col items-center">
+            <Link to="/deconnexion" className="text-slate-500 md:text-3xl
+            mobile:hidden
+            ">Mon compte</Link>
+            <Link to="/deconnexion" className="">
+              <TbLogout className="text-gray-500
+               mobile:h-10 mobile:w-6
+               md:hidden"/></Link>
+
           </div>
         </li>
       </ul>
