@@ -2,7 +2,7 @@ import { Post, Controller, Body, Get, NotFoundException, Param, Delete, Put, Req
 import { RecetteService } from './recette.service';
 import { RecetteDto } from './dto/recette.dto';
 import { UserDto } from './dto/user.dto';
-
+//TODO afficher seulement le nom des categories de la db
 @Controller('recettes')
 export class RecetteController {
     constructor(private readonly recetteService: RecetteService) {}
