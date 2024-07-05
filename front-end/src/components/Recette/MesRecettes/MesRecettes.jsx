@@ -7,7 +7,7 @@ import Categories from "./components/Categories";
 import RecetteByUser from "../ListeRecetteByUser/ListeRecetteByUser";
 import ListeRecetteByUser from "../ListeRecetteByUser/ListeRecetteByUser";
 
-function MesRecettes() {
+function MesRecettes( {userName}) {
   const [showRecetteFormulaire, setShowRecetteFormulaire] = useState(false);
   const [showListeRecette, setShowListeRecette] = useState(true);
   const [showButtonAfficher, setShowButtonAfficher] = useState(false);
@@ -19,6 +19,7 @@ function MesRecettes() {
     setShowButtonAfficher(true);
     setShowButtonAjouter(false);
   };
+  console.log("username:", userName)
 
   const toggleShowListRecette = () => {
     setShowListeRecette(!showListeRecette);
@@ -35,7 +36,7 @@ function MesRecettes() {
           className=" italic absolute top-0 left-0 ml-4 mt-12 text-4xl"
           style={{ color: "#8B7979" }}
         >
-          Mes recettes
+          Mes recettes {userName}
         </p>
       </Header>
       <Categories></Categories>
