@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./inscription.css";
 import NavBar from "../common/navbar/Navbar";
+import Header from "../Header";
 import backgroundImage from "../../assets/background/bg.jpg";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -109,11 +110,12 @@ function FormulaireInscription() {
 
   return (
     <>
+      <Header />
       <NavBar />
       <form
         onSubmit={handleSubmit}
         className="flex flex-col w-12/12 mx-auto
-        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
+        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-r-41.25 mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16
         lg:h-full lg:w-6/12 lg:mx-auto"
       >
