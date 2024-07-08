@@ -8,6 +8,9 @@ export default {
     extend: {
       screens: {
         'mobile': {'min': '330px', 'max': '639px'},
+      },
+      height: {
+        'r-41.25': '41.25rem'
       }
     },
   },
