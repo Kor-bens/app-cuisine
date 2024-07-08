@@ -4,8 +4,8 @@ import NavBar from "../common/navbar/Navbar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./connexion.css";
-import { FaRegEye } from "react-icons/fa";
-import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import Header from "../Header";
 // import { updateUser } from '../../userUtils';
 
 export default function Connexion({ setUserName, setIsAuthenticated }) {
@@ -17,8 +17,7 @@ export default function Connexion({ setUserName, setIsAuthenticated }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [redirectToDashboard, setRedirectToDashboard] = useState(false);
-  // const [userName, setUserName] = useState(""); 
+  const [redirectToDashboard ,setRedirectToDashboard] = useState(false)
   const navigate = useNavigate();
 
   const toggleShowPassword = () => {
@@ -35,7 +34,7 @@ export default function Connexion({ setUserName, setIsAuthenticated }) {
   
   useEffect(() => {
     if (redirectToDashboard) {
-      navigate("/mes-recettes");
+      navigate("/dashboard");
     }
   }, [redirectToDashboard, navigate]);
 
@@ -72,11 +71,9 @@ export default function Connexion({ setUserName, setIsAuthenticated }) {
         setSuccessMessage(response.data.SuccessMessage);
       }else{
         setSuccessMessage("Inscription réussie")
-
         localStorage.setItem('token', response.data.token);
         console.log("Token enregistré :", response.data.token);
         console.log("Réponse complète du serveur :", response);
-        setRedirectToDashboard(true);
         // updateUser(response.data.userName, setUserName); 
         setUserName(response.data.userName);
         setIsAuthenticated(true);
@@ -107,11 +104,12 @@ export default function Connexion({ setUserName, setIsAuthenticated }) {
 
   return (
       <>
+      <Header className="mobile:absolute mobile:top-0 mobile:left-0 mobile:ml-4 mobile:mt-12 mobile:text-4xl "></Header>
       <NavBar />
       <form 
       onSubmit={handleSubmit}
         className="flex flex-col w-12/12 mx-auto
-        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-screen mobile:w-full
+        mobile:mb-4 mobile:w-5/5 mobile:justify-center mobile:items-center mobile:h-r-41.25  mobile:w-full
          md:text-center md:justify-center md:h-full md:w-5/5 md:mt-16
         lg:h-full lg:w-6/12 lg:mx-auto
           "
