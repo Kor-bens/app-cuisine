@@ -70,7 +70,7 @@ export default function Connexion({ setUserName, setIsAuthenticated }) {
         setErrorMessage(response.data.message);
         setSuccessMessage(response.data.SuccessMessage);
       }else{
-        setSuccessMessage("Inscription réussie")
+        setSuccessMessage("Connexion réussie")
         localStorage.setItem('token', response.data.token);
         console.log("Token enregistré :", response.data.token);
         console.log("Réponse complète du serveur :", response);
