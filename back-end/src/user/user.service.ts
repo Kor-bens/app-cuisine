@@ -60,7 +60,7 @@ export class UserService {
         expiresIn: '1min',
     });
 
-    return {successMessage: 'Connexion réussie!', token, userName: user.nom, userId: user.id, tokenEncrypte }; // Retourne le jeton d'authentification et le nom
+    return {successMessage: 'Connexion réussie!', token, userName: user.nom, userId: user.id }; // Retourne le jeton d'authentification et le nom
 
   }
   
