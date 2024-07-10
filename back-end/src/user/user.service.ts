@@ -57,7 +57,7 @@ export class UserService {
     }
     const token = jwt.sign({ userId: user.id }, tokenEncrypte, {
         algorithm: 'HS256',
-        expiresIn: '30min',
+        expiresIn: '1min',
     });
 
     return {successMessage: 'Connexion réussie!', token, userName: user.nom, userId: user.id, tokenEncrypte }; // Retourne le jeton d'authentification et le nom

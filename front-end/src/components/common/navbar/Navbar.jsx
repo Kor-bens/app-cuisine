@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { BiHome } from "react-icons/bi";
-import { HiHome } from "react-icons/hi";
 import { FaBookOpen } from "react-icons/fa6";
-import { FaRegUser, FaUser  } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { IoHomeSharp } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
 
-export default function NavBar({ isAuthenticated, setIsAuthenticated }) {
+export default function NavBar({ isAuthenticated, setIsAuthenticated, userName }) {
+
+   useEffect(() => {
+    console.log("isAuthenticated:", isAuthenticated);
+    console.log("userName:", userName);
+  }, [isAuthenticated, userName]);
+
   const handleLogout = () => {
     localStorage.removeItem("token");
-    setIsAuthenticated(true);
+    localStorage.removeItem("userName")
+    console.log("Token retiré");
+    setIsAuthenticated(false);
   };
 
   return (
@@ -24,47 +30,46 @@ export default function NavBar({ isAuthenticated, setIsAuthenticated }) {
               <Link to="/" className="md:text-3xl text-slate-700 mobile:hidden">Accueil</Link>
             </div>
           </li>
-          <li>
+          {/* <li>
             <div className="flex flex-col items-center">
               <FaSearch className="text-gray-500 mobile:h-10 mobile:w-7 md:hidden" />
               <Link to="/" className="md:text-3xl text-slate-700 mobile:hidden">Explorer</Link>
             </div>
-          </li>
+          </li> */}
           <li>
             <div className="flex flex-col items-center">
-              <Link to="/mes-recettes-categories" className="text-slate-500 md:text-3xl mobile:hidden">Mes recettes</Link>
+              <Link to="/mes-recettes" className="text-slate-500 md:text-3xl mobile:hidden">Mes recettes</Link>
               <Link to="/mes-recettes" className=""><FaBookOpen className="text-gray-500 mobile:h-10 mobile:w-7 md:hidden" /></Link>
             </div>
           </li>
           {isAuthenticated ? (
             <>
-              <li>
-                <div className="flex flex-col items-center">
-                  <TbLogout/>
-                  <button onClick={handleLogout} className="text-slate-500 md:text-3xl mobile:hidden">Se déconnecter</button>
-                  <button onClick={handleLogout} className="">
-                    <TbLogout className="text-gray-500 mobile:h-10 mobile:w-7 md:hidden" />
-                    {console.log('logout')}
-                  </button>
-                </div>
-              </li>
+            {console.log("dqsfdsfdsfdsfdsfdsf")}
+               <li>
+               <div className="flex flex-col items-center">
+                 <Link to="/dashboard" className="text-slate-500 md:text-3xl mobile:hidden">{userName}</Link>
+                 <Link to="/dashboard" className=""><FaUser className="text-gray-500 mobile:h-10 mobile:w-6 md:hidden" /></Link>
+               </div>
+             </li>
+            <li>
+              <div className="flex flex-col items-center">
+                <button onClick={handleLogout} className="text-slate-500 md:text-3xl mobile:hidden">Se déconnecter</button>
+                <button onClick={handleLogout} className=""><TbLogout className="text-gray-500 mobile:h-10 mobile:w-7 md:hidden" /></button>
+              </div>
+            </li>
             </>
           ) : (
             <li>
               <div className="flex flex-col items-center">
                 <Link to="/connexion" className="text-slate-500 md:text-3xl mobile:hidden">Mon compte</Link>
-                <Link to="/connexion" className="">
-                  <FaUser className="text-gray-500 mobile:h-10 mobile:w-6 md:hidden" />
-                  {console.log('Connexion')}
-                </Link>
+                <Link to="/connexion" className=""><FaUser className="text-gray-500 mobile:h-10 mobile:w-6 md:hidden" /></Link>
               </div>
             </li>
           )}
         </ul>
-        
       </div>
     </nav>
   );
 }
-//TODO REGLER AFFICHAGE POUR GRAND ECRAN
-//TODO AFFICHER LE LOGOUT LORS DE LA CONNEXION
+
+//TODO REGLER AFFICHAGE LOGO LOGOUT ET FAUSER AVEC LINK TO /DASHBOARD
