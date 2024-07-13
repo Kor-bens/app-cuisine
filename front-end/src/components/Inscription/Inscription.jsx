@@ -1,12 +1,10 @@
-import React, { useState } from "react";
 import axios from "axios";
-import "./inscription.css";
-import NavBar from "../common/navbar/Navbar";
-import Header from "../Header";
-import backgroundImage from "../../assets/background/bg.jpg";
-import { FaRegEye } from "react-icons/fa";
-import { FaRegEyeSlash } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import backgroundImage from "../../assets/background/bg.jpg";
+import Header from "../Header";
+import "./inscription.css";
 
 
 function FormulaireInscription() {
@@ -111,7 +109,6 @@ function FormulaireInscription() {
   return (
     <>
       <Header />
-      <NavBar />
       <form
         onSubmit={handleSubmit}
         className="flex flex-col w-12/12 mx-auto

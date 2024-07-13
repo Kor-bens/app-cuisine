@@ -1,11 +1,8 @@
-import NavBar from "../../common/navbar/Navbar";
-import Header from "../../Header";
-import ListeRecettes from "../ListeRecettes/ListeRecettes";
 import { useState } from "react";
+import Header from "../../Header";
 import RecetteFormulaire from "../AjoutRecette/RecetteFormulaire";
-import Categories from "./components/Categories";
-import RecetteByUser from "../ListeRecetteByUser/ListeRecetteByUser";
 import ListeRecetteByUser from "../ListeRecetteByUser/ListeRecetteByUser";
+import Categories from "./components/Categories";
 
 function MesRecettes( {userName}) {
   const [showRecetteFormulaire, setShowRecetteFormulaire] = useState(false);
@@ -74,7 +71,7 @@ function MesRecettes( {userName}) {
         )}
         {showRecetteFormulaire && <RecetteFormulaire />}
       </div>
-            <NavBar />
+            {/* <NavBar /> */}
 
     </>
   );

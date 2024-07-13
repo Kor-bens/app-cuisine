@@ -1,12 +1,11 @@
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Accueil from "./components/Accueil/Accueil";
 import Connexion from "./components/Connexion/Connexion";
-import AjoutRecette from "./components/Recette/AjoutRecette/AjoutRecette";
-import ListeRecettes from "./components/Recette/ListeRecettes/ListeRecettes";
-import FormulaireInscription from "./components/Inscription/Inscription";
 import Dashboard from "./components/Dashboard/Dashboard";
+import FormulaireInscription from "./components/Inscription/Inscription";
+import AjoutRecette from "./components/Recette/AjoutRecette/AjoutRecette";
 import MesRecettes from "./components/Recette/MesRecettes/MesRecettes";
 import NavBar from "./components/common/navbar/Navbar";
 
@@ -22,7 +21,7 @@ function App() {
     const token = localStorage.getItem("token");
     const storedUserName = localStorage.getItem("userName");
     if (token && storedUserName) {
-      setIsAuthenticated(false);
+      setIsAuthenticated(true);
       setUserName(storedUserName);
     }
   }, []);

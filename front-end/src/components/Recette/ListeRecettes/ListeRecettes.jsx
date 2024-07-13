@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { TbPointFilled } from "react-icons/tb";
-import NavBar from "../../Dashboard/components/Navbar";
-import { Link } from "react-router-dom";
 // TODO AFFICHER LA LISTE DES RECETTES PAR UTILISATEUR
 //TODO REGLER AFFICHAGE DES BOUTONS 
 // TODO DESIGN
@@ -13,7 +11,7 @@ export default function ListeRecettes() {
   useEffect(() => {
     const fetchListeRecettes = async () => {
       try {
-        const response = await axios.get("http://localhost:3004/recettes/");
+        const response = await axios.get("http://localhost:3003/recettes/");
         setListeRecettes(response.data);
       } catch (error) {
         console.error("Erreur lors de la récupération des données :", error);

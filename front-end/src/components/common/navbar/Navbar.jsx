@@ -1,23 +1,22 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
-import { FaBookOpen } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
+import { FaBookOpen } from "react-icons/fa6";
 import { IoHomeSharp } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 export default function NavBar({ isAuthenticated, setIsAuthenticated, userName }) {
 
    useEffect(() => {
-    console.log("isAuthenticated:", isAuthenticated);
+    console.log("navbar effect isAuthenticated:", isAuthenticated);
     console.log("userName:", userName);
   }, [isAuthenticated, userName]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName")
-    console.log("Token retiré");
     setIsAuthenticated(false);
+    console.log("Token retiré");
   };
 
   return (

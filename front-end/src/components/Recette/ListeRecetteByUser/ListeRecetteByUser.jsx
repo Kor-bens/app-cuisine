@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 function ListeRecetteByUser() {
     const [listeRecettesByUser, setListeRecettesByUser] = useState([])
@@ -7,7 +7,7 @@ function ListeRecetteByUser() {
     useEffect(() => {
         const fetchListeRecettesByUser = async () => {
           try {
-            const response = await axios.get("http://localhost:3004/recettes/user");
+            const response = await axios.get("http://localhost:3003/recettes/user");
             setListeRecettesByUser(response.data);
           } catch (error) {
             console.error("Erreur lors de la récupération des données :", error);

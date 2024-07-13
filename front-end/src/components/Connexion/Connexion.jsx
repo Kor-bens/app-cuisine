@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import NavBar from "../common/navbar/Navbar";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header";
 import "./connexion.css";
 
@@ -33,7 +31,7 @@ export default function Connexion({ setUserName, setIsAuthenticated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3004/users/connexion", {
+      const response = await axios.post("http://localhost:3003/users/connexion", {
         nomOrEmail: formData.nomOrEmail,
         motDePasse: formData.motDePasse,
       });
@@ -65,7 +63,6 @@ export default function Connexion({ setUserName, setIsAuthenticated }) {
   return (
     <>
       <Header className="mobile:absolute mobile:top-0 mobile:left-0 mobile:ml-4 mobile:mt-12 mobile:text-4xl" />
-      <NavBar />
       <form 
         onSubmit={handleSubmit}
         className="flex flex-col w-12/12 mx-auto

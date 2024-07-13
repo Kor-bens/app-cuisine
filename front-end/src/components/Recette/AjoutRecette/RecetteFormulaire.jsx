@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import axios from "axios"
-import "./RecetteFormulaire.css"
+import axios from "axios";
+import React, { useState } from "react";
+import "./RecetteFormulaire.css";
 // TODO STYLE ET AJOUT DE RECETTE PAR USERS
 export default function RecetteFormulaire() {
     const [formData, setFormData] = useState({
@@ -51,7 +51,7 @@ export default function RecetteFormulaire() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try { 
-            const response = await axios.post("http://localhost:3004/recettes", {
+            const response = await axios.post("http://localhost:3003/recettes", {
                 title: formData.title,
                 description: formData.description,
                 ingredients: formData.ingredients,
